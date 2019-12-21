@@ -9,7 +9,7 @@
 export default [
   {
     // 获取记录
-    name: 'getRewardList',
+    name: 'userList',
     url: 'cpinfo/sport-reward-list'
   },
   {

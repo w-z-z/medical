@@ -5,7 +5,6 @@
     <SearchContainer>
       <div>dsadsa</div>
     </SearchContainer>
-    <PlayerStratum></PlayerStratum>
     <el-row>
       <br>
       <h1>按钮:</h1>
@@ -174,7 +173,6 @@
 <script>
 import SearchContainer from '@/components/Container/SearchContainer'
 import TitleContainer from '@/components/Container/TitleContainer'
-import PlayerStratum from '@/components/PlayerStratum'
 import bsButton from '@/components/base/bsButton.vue'
 import bsLink from '@/components/base/bsLink.vue'
 import bsCell from '@/components/base/bsCell.vue'
@@ -183,7 +181,7 @@ import bsExplain from '@/components/base/bsExplain.vue'
 import bstableSelect from '@/components/base/bstableSelect.vue'
 export default {
   name: '',
-  components: {    TitleContainer, SearchContainer, PlayerStratum, bsButton,
+  components: {    TitleContainer, SearchContainer, bsButton,
     bsCell,
     bsLink,
     bsExplain,
