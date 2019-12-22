@@ -3,7 +3,7 @@
  * @Author: chenwei
  * @Date: 2019-06-04 18:38:00
  * @LastEditors  : zhangyukele
- * @LastEditTime : 2019-12-22 14:49:02
+ * @LastEditTime : 2019-12-22 18:22:56
  */
 
 
@@ -17,9 +17,12 @@ Vue.use(Router)
 routers.unshift({ path: '/', redirect: '/login' })
 // routers.unshift({ path: '*', component: '/login'})
 
-let router=new Router({
+export const createRouter = () => new Router({
   mode: 'hash',
   routes: routers
 })
+const router = createRouter();
+
+
 
 export default router

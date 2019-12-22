@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import {createRouter} from '../../router/index'
+
 export default {
   name: 'Mheader',
   data () {
@@ -25,6 +27,7 @@ export default {
       //清空数据
       this.$store.dispatch("changeUserInfo",{},)
       this.$router.hasAddRouter = false;
+      this.$router.matcher = createRouter().matcher;
        this.$router.push({name:"login"})
     }
   },
