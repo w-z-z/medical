@@ -10,7 +10,7 @@
  */
 
 import Url from './url'
-console.log(Url)
+// console.log(Url)
 import Service from './net/http'
 export let api = Url.reduce((apiObj, u) => {
   let methods = u.methods || 'post'

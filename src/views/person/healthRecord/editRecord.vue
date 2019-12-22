@@ -1,9 +1,12 @@
 <template>
   <div class="editRecord">
     editRecord
+    <BDfrom></BDfrom>
   </div>
 </template>
 <script>
+import  BDfrom  from '@/components/BD_from/demo';
+
 export default {
   name: 'editRecord',
   data(){
@@ -11,7 +14,9 @@ export default {
         
     }
   },
-  
+  components:{
+    BDfrom
+  }
 }
 </script>
 <style lang="scss" scoped>

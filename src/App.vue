@@ -14,6 +14,9 @@ export default {
     // layout
   },
   methods:{
+  },
+  created(){
+   console.log(this.token)
   }
 }
 </script>

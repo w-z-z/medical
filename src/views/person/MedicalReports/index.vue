@@ -1,9 +1,11 @@
 <template>
   <div class="MedicalReports">
     123MedicalReports
+    <BDtable></BDtable>
   </div>
 </template>
 <script>
+import  BDtable  from '@/components/BD_table/demo';
 export default {
   name: 'MedicalReports',
   data(){
@@ -11,6 +13,9 @@ export default {
         
     }
   },
+  components:{
+    BDtable
+  }
   
 }
 </script>

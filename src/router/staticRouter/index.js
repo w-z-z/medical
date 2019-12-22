@@ -47,14 +47,14 @@ export default [
     path: '/forgetPsd',
     component: () => import('@/views/forgetPsd/index.vue'),
   },
-  // {
-  //   id: 123456,
-  //   title:"404",
-  //   name:"NotFound",
-  //   meta:{
-  //     title:"404",
-  //   },
-  //   path: '/NotFound',
-  //   component:  () => import('@/views/errorPage/NotFound.vue'),
-  // }
+  {
+    id: 123456,
+    title:"404",
+    name:"NotFound",
+    meta:{
+      title:"404",
+    },
+    path: '/NotFound',
+    component:  () => import('@/views/errorPage/NotFound.vue'),
+  }
 ]

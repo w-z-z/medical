@@ -16,7 +16,7 @@ Vue.use(Router)
 /*在跳转之前执行*/
 
 routers.unshift({ path: '/', redirect: '/login' })
-routers.unshift({ path: '*', redirect: '/NotFound' ,hidden: true})
+// routers.unshift({ path: '*', redirect: '/NotFound' ,hidden: true})
 // store.dispatch('changeRouter',routers)
 let router=new Router({
   mode: 'hash',
