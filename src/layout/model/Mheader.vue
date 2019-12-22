@@ -24,6 +24,7 @@ export default {
     loginOut(){
       //清空数据
       this.$store.dispatch("changeUserInfo",{},)
+      this.$router.hasAddRouter = false;
        this.$router.push({name:"login"})
     }
   },

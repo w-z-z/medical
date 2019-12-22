@@ -56,7 +56,7 @@ export default {
       userInfo['routers']=addRouters;
       //存储store
       this.$store.dispatch("changeUserInfo",userInfo)
-      this.$store.dispatch("addRouters",{router:this.$router})
+      // this.$store.dispatch("addRouters",addRouters)
       this.$router.push({name:"userCener"})
       }
     }

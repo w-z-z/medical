@@ -20,17 +20,8 @@ const mutations = {
   },
   ADD_ROUTER(state,addRouter){
     if(!router.hasAddRouter){
-      console.log(state.userInfo.routers,11);
-      
       router.addRoutes(addRouter)
       router.hasAddRouter = true;
-      console.log(11111,router);
-      if(typeof next === 'function'){
-        console.log('222');
-        // next()
-      }
-      
-      
     }
   }
 }
