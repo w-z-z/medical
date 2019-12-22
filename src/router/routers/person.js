@@ -2,8 +2,8 @@
  * @Description: 分类路由
  * @Author: chenwei
  * @Date: 2019-06-06 10:19:06
- * @LastEditors: chenwei
- * @LastEditTime: 2019-06-06 14:15:30
+ * @LastEditors  : zhangyukele
+ * @LastEditTime : 2019-12-22 16:50:46
  */
 //个人用户路由
 import template from '@/views/template/index.vue'

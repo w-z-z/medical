@@ -7,15 +7,28 @@ export default [
     name:"login",
     meta:{
       title:"登录",
+      isStatic: true
     },
     path: '/login',
     component:  () => import('@/views/login/index.vue'),
   },
+  // {
+  //   id: 123456,
+  //   title:"登录",
+  //   name:"login",
+  //   meta:{
+  //     title:"登录",
+  //   },
+  //   path: '/dd',
+  //   component:  () => import('@/views/login/index.vue'),
+  // },
   {
     id: 123456,
     title:"注册",
     meta:{
       title:"注册",
+      isStatic: true
+
     },
     name:"register",
     path: '/register',
@@ -43,6 +56,8 @@ export default [
     name:"forgetPsd",
     meta:{
       title:"忘记密码",
+      isStatic: true
+
     },
     path: '/forgetPsd',
     component: () => import('@/views/forgetPsd/index.vue'),
