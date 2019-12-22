@@ -1,12 +1,20 @@
 <template>
   <div id="app">
+    <!-- <layout></layout> -->
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+// import layout from '@/layout/index.vue'
+
 export default {
-  name: 'medical'
+  name: 'medical',
+    components: {
+    // layout
+  },
+  methods:{
+  }
 }
 </script>
 

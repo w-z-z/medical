@@ -1,17 +1,26 @@
 //静态路由未登录可访问的
 export default [
+ 
   {
     id: 123456,
-    title:"登录"
-    name:"/login",
-    path: '/login/index',
+    title:"登录",
+    name:"login",
+    meta:{
+      title:"登录",
+    },
+    path: '/login',
+    component:  () => import('@/views/login/index.vue'),
   },
   {
     id: 123456,
-    title:"注册"
-    name:"/register",
-    path: '/register/index',
-    child:[
+    title:"注册",
+    meta:{
+      title:"注册",
+    },
+    name:"register",
+    path: '/register',
+    component:  () => import('@/views/register/index.vue'),
+    children:[
       // {
       //   id: 123456,
       //   title:"个人注册"
@@ -30,15 +39,22 @@ export default [
   },
   {
     id: 123456,
-    title:"忘记密码"
-    name:"/forgetPsd",
-    path: '/forgetPsd/index',
-    
+    title:"忘记密码",
+    name:"forgetPsd",
+    meta:{
+      title:"忘记密码",
+    },
+    path: '/forgetPsd',
+    component: () => import('@/views/forgetPsd/index.vue'),
   },
-  {
-    id: 123456,
-    title:"404"
-    name:"/forgetPsd",
-    path: '/errorPage/NotFound',
-  }
+  // {
+  //   id: 123456,
+  //   title:"404",
+  //   name:"NotFound",
+  //   meta:{
+  //     title:"404",
+  //   },
+  //   path: '/NotFound',
+  //   component:  () => import('@/views/errorPage/NotFound.vue'),
+  // }
 ]

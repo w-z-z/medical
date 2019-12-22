@@ -1,13 +1,13 @@
 <template>
   <div class="home">
     <div>
-      类型1：个人
-      <br>
-      类型2：企业
     </div>
-   <el-form :model="ruleForm" status-icon  ref="ruleForm" label-width="100px" class="demo-ruleForm">
-  <el-form-item label="类型" prop="usertype">
-    <el-input type="number" v-model="ruleForm.pass" autocomplete="off"></el-input>
+   <el-form  ref="ruleForm" :inline="true" :model="formInline" class="demo-form-inline">
+  <el-form-item label="登录类型">
+    <el-select v-model="formInline.region" placeholder="登录类型">
+      <el-option label="个人" value="1"></el-option>
+      <el-option label="企业" value="2"></el-option>
+    </el-select>
   </el-form-item>
   <el-form-item>
     <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
@@ -17,13 +17,17 @@
 </template>
 <script>
  import { mapGetters } from "vuex";
+import personRouter from '@/router/routers/person'
+import staticRouter from '@/router/staticRouter'
+import enterpriseRouter from '@/router/routers/enterprise'
 export default {
   name: 'home',
   data(){
     return {
-        ruleForm: {
-          usertype: '',
-        },
+        formInline: {
+          user: '',
+          region: ''
+        }
     }
   },
   components: {
@@ -42,9 +46,20 @@ export default {
         });
       },
       changebgb(){
-        this.$store.dispatch("changeUserInfo",{
-          ji:5
-        })
+        let userInfo={  
+          name:"真真棒",
+          type:this.formInline.region,
+          routers:personRouter
+        }
+      if(this.formInline.region==1){
+        userInfo['routers']=personRouter
+         this.$router.addRoutes(personRouter)
+      }else{
+         userInfo['routers']=enterpriseRouter
+         this.$router.addRoutes(enterpriseRouter)
+      }
+      this.$store.dispatch("changeUserInfo",userInfo)
+      this.$router.push({name:"userCener"})
       }
     }
 }

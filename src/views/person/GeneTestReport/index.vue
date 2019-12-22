@@ -1,20 +1,24 @@
 <template>
   <div>
-     <router-view></router-view>
+    GeneTestReport
   </div>
 </template>
 
 <script>
 
 export default {
-  name: '',
-  
+  name: 'messageList',
+  created(){
+  },
   data () {
     return {
     }
   },
-  
-  
+   methods: {
+    fff(c){
+     this.$router.push({name:c})
+    }
+  },
 }
 </script>
 

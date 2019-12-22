@@ -6,42 +6,40 @@
  * @LastEditTime: 2019-06-06 14:14:15
  */
 
-import person from './routers/person'
+import personRouter from './routers/person'
 import staticRouter from './staticRouter'
-import enterprise from './routers/enterprise'
+import enterpriseRouter from './routers/enterprise'
+import store from '@/store/index'
 
-import layout from '@/layout/index.vue'
-import template from '@/views/template/index.vue'
+let all=staticRouter
+// 个人
+// console.log(store.state.user.userInfo.type)
 
-
-let all
-let type=2
-//个人
-// if(type==1){
-//   all= Object.assign(
-//     staticRouter,person
-//   )
+// if(store.state.user.userInfo.type==1){
+//   all= staticRouter.concat(personRouter)
 //   //企业
-// }else{
-//   all= Object.assign(
-//     staticRouter,enterprise
-//   )
+// }else {
+//   all= staticRouter.concat(enterpriseRouter)
 // }
-let routes = []
-const initRouter = function (routerobj) {
-  routerobj.forEach(element => {
-    let obj = {
-      name: element.name,
-      path: element.path,
-      component:() => import('@/views/' + element.path + '.vue'),
-      // component:layout,
-    }     
-    if (all[k].child && all[k].child.length>=1) {
-      initRouter(...all[k].child)
-    }
-    routes.push(obj)
-  });
-}
-initRouter(all)
-console.log(routes)
-export default routes
+//需要处理路由的方法
+// let routes = []
+// const initRouter = function (routerobj) {
+//   routerobj.forEach(element => {
+//     let obj = {
+//       name: element.name,
+//       path: element.path,
+//       meta:{
+//         title: element.title,
+//         id:element.title,
+//       }
+//       component:() => import('@/views/' + element.path + '.vue'),
+//       // component:layout,
+//     }     
+//     if (all[k].children && all[k].children.length>=1) {
+//       initRouter(...all[k].children)
+//     }
+//     routes.push(obj)
+//   });
+// }
+// initRouter(all)
+export default all

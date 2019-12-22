@@ -1,6 +1,11 @@
 <template>
   <div id='header'>
    header
+   <button @click="fff('/login')">登录</button>
+   <button @click="fff('/forgetPsd')">忘记密码</button>
+   <button @click="fff('/NotFound')">404</button>
+   <button @click="fff('/register')">注册</button>
+   <button @click="loginOut">退出</button>
   </div>
 </template>
 
@@ -13,6 +18,14 @@ export default {
   },
   computed: {},
   methods: {
+    fff(c){
+     this.$router.push(c)
+    },
+    loginOut(){
+      //清空数据
+      this.$store.dispatch("changeUserInfo",{},)
+       this.$router.push({name:"login"})
+    }
   },
   created () {
   },

@@ -1,26 +1,30 @@
 <template>
-  <div class="enterprise">
-    <Mmenu></Mmenu>
-       <router-view></router-view>
+  <div class="person">
+   <button @click="fff('setUserInfo')">设置个人信息</button>
+   <button @click="fff('messageList')">消息列表</button>
+   <button @click="fff('staff')">员工列表</button>
+     <router-view></router-view>
   </div>
 </template>
 <script>
-import Mmenu from '@/components/menu'  
-
 export default {
-  name: 'enterprise',
+  name: 'person',
   data(){
     return {
         
     }
   },
-    components: {   
-     Mmenu
+  methods: {
+    fff(c){
+     this.$router.push({
+       name:c
+     })
+    }
   },
 }
 </script>
 <style lang="scss" scoped>
-   .enterprise{
+   .home{
      width: 500px;
      margin: 50px auto;
    }

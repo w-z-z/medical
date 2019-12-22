@@ -1,20 +1,24 @@
 <template>
   <div>
-     <router-view></router-view>
+    InformedConsent
   </div>
 </template>
 
 <script>
 
 export default {
-  name: '',
-  
+  name: 'InformedConsent',
+  created(){
+  },
   data () {
     return {
     }
   },
-  
-  
+   methods: {
+    fff(c){
+     this.$router.push({name:c})
+    }
+  },
 }
 </script>
 

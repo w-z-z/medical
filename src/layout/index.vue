@@ -2,7 +2,9 @@
   <div>
     <Mheader></Mheader>
     <!-- 内容 -->
+    <section id="content">
     <router-view></router-view>
+    </section>
     <Mfooter></Mfooter>
   </div>
 </template>
@@ -32,9 +34,8 @@ export default {
 
 <style lang="less">
 #content{
-  padding-top: 110px;
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: darkkhaki;
+  background-color: rgb(233, 233, 233);
+  min-height: calc(100vh - 200px);
+  padding-top: 100px;
 }
 </style> 
