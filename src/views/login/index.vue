@@ -51,14 +51,12 @@ export default {
           type:this.formInline.region,
           routers:personRouter
         }
-      if(this.formInline.region==1){
-        userInfo['routers']=personRouter
-         this.$router.addRoutes(personRouter)
-      }else{
-         userInfo['routers']=enterpriseRouter
-         this.$router.addRoutes(enterpriseRouter)
-      }
+
+      let addRouters = this.formInline.region==1?personRouter:enterpriseRouter;
+      userInfo['routers']=addRouters;
+      //存储store
       this.$store.dispatch("changeUserInfo",userInfo)
+      this.$store.dispatch("addRouters",{router:this.$router})
       this.$router.push({name:"userCener"})
       }
     }

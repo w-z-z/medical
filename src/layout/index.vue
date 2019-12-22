@@ -3,7 +3,7 @@
     <Mheader></Mheader>
     <!-- 内容 -->
     <section id="content">
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
     </section>
     <Mfooter></Mfooter>
   </div>
