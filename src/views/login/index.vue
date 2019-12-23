@@ -1,17 +1,4 @@
 <template>
-  <!-- <div class="home">
-    <el-form ref="ruleForm" :inline="true" :model="formInline" class="demo-form-inline">
-      <el-form-item label="登录类型">
-        <el-select v-model="formInline.region" placeholder="登录类型">
-          <el-option label="个人" value="1"></el-option>
-          <el-option label="企业" value="2"></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
-      </el-form-item>
-    </el-form>
-  </div>-->
   <div id="login">
     <div class="container">
       <div class="top">
@@ -69,12 +56,6 @@ import personRouter from "@/router/routers/person";
 import staticRouter from "@/router/staticRouter";
 import enterpriseRouter from "@/router/routers/enterprise";
 import { validate } from "@/utils/validate";
-// import { telReg, PwdReg } from "@/utils/reg";
-// import {
-//   personPasswordLogin,
-//   personSmsCodeLogin,
-//   sendLoginCode
-// } from "@/apis/account";
 export default {
   name: "home",
   data() {
@@ -90,21 +71,15 @@ export default {
         code: ""
       },
       rules: {
-        // mobile: [
-        //    validate.verifyRequired('邮箱不能为空！'),
-        //   { validator: validate.verifyEmail, trigger: 'change' }
-        // ]
         mobile: [
           validate.verifyRequired("手机不能为空！"),
           { validator: validate.verifyPhone, trigger: "change" }
         ],
-        
-        // password: [validate.verifyRequired("密码不能为空！")],
-        // phone: [{ validator: validate.verifyPhone, trigger: "change" }],
-        // email: [
-        //   validate.verifyRequired("邮箱不能为空！"),
-        //   { validator: validate.verifyEmail, trigger: "change" }
-        // ]
+        password: [
+          validate.verifyRequired("密码不能为空！"),
+          { validator: validate.verifyPwd, trigger: "change" }
+        ],
+        code: [validate.verifyRequired("短信验证码不能为空！")]
       }
     };
   },
@@ -185,8 +160,8 @@ export default {
     position: relative;
     margin-bottom: 50px;
     .login-box {
-      width: 386px;
-      height: 552px;
+      width: 487px;
+      height: 612px;
       background: rgba(255, 255, 255, 1);
       border: 1px solid rgba(120, 208, 193, 1);
       border-radius: 25px;
@@ -198,8 +173,8 @@ export default {
         width: 240px;
         p {
           display: inline-block;
-          font-size: 20px;
-          width: 100px;
+          font-size: 24px;
+          width: 120px;
           line-height: 60px;
           color: #666;
           text-align: center;
@@ -217,6 +192,9 @@ export default {
             display: block;
           }
         }
+      }
+      .el-form-item{
+        margin-bottom: 45px;
       }
       .log-icon {
         display: inline-block;
