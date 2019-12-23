@@ -1,21 +1,19 @@
 <template>
   <div class="layout">
-   <layout></layout>
+    <layout></layout>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import layout from '@/layout/index.vue'
-
+import layout from "@/layout/index.vue";
 export default {
-  name: 'home',
+  name: "home",
   components: {
     layout
   },
   methods: {
-    clickbutton () { },
-    getUserList () {
+    clickbutton() {},
+    getUserList() {
       this.$api
         .userList({
           page: 1,
@@ -23,16 +21,16 @@ export default {
         })
         .then(
           res => {
-            console.log(res)
+            console.log(res);
           },
           err => {
-            console.log(err)
+            console.log(err);
           }
-        )
+        );
     }
   },
-  created(){
-    this.getUserList()
-  },
-}
+  created() {
+    this.getUserList();
+  }
+};
 </script>

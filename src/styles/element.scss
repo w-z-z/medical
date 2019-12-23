@@ -1,8 +1,17 @@
+/*
+ * @Description: 全局更改element的样式文件
+ * @Version: 1.1.0
+ * @Autor: ranli
+ * @Date: 2019-12-22 14:24:56
+ * @LastEditors  : ranli
+ * @LastEditTime : 2019-12-23 11:24:56
+ */
 // eg
-.el-input__inner{
+.el-input__inner {
   height: 50px;
   line-height: 50px;
 }
-.el-button.el-button--primary{
- background-color: darkblue;
+
+.el-button.el-button--primary {
+  background-color: darkblue;
 }

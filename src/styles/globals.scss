@@ -1,3 +1,11 @@
+/*
+ * @Description: 全局样式
+ * @Version: 1.1.0
+ * @Autor: ranli
+ * @Date: 2019-12-20 21:25:48
+ * @LastEditors  : ranli
+ * @LastEditTime : 2019-12-23 11:24:25
+ */
 //主题色
 $primaryColor: #8D43FF;
 $successColor: #66C655;
@@ -6,11 +14,11 @@ $infoColor:#808080;
 $dangerColor:#F05252;
 
 // 文本颜色
-$primaryTextColor:#808080;//文本颜色
+$primaryTextColor:#808080; //文本颜色
 $highLightTextColor:#333333; //文本颜色
-$darkTextColor:#000000;//黑色
-$placeholderColor:#9D9D9D;//占位颜色
-$explainColor:#BCBFC3;//注释颜色
+$darkTextColor:#000000; //黑色
+$placeholderColor:#9D9D9D; //占位颜色
+$explainColor:#BCBFC3; //注释颜色
 
 //边框颜色
 $inputBoderColor:#CED4DA;
@@ -21,26 +29,32 @@ $borderRadius:3px;
 
 //字体
 $explainFont:10px; //注释字体
-$baseFont:12px;  //基础字体
+$baseFont:12px; //基础字体
 $tabFont:13px; //二级导航
 $asideFont:14px; //侧边栏 
 $navFont:15px; //一级导航
 $nameFont:16px; //项目名 用户名
-$highlightFont:22px;//计数显示
+$highlightFont:22px; //计数显示
 
 // 字重
 $fontWeight500: 500;
 
 // 自定义样式类
 //flex布局父容器
-@mixin _flex (){
-  display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
-  display: -moz-box; /* Firefox 17- */
-  display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
-  display: -moz-flex; /* Firefox 18+ */
-  display: -ms-flexbox; /* IE 10 */
-  display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
-  flex-direction: row ;
+@mixin _flex () {
+  display: -webkit-box;
+  /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box;
+  /* Firefox 17- */
+  display: -webkit-flex;
+  /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex;
+  /* Firefox 18+ */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+  flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;

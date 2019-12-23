@@ -1,27 +1,27 @@
 /*
- * @Description:  
- * @Author: knight
- * @Date: 2019-09-19 14:06:47
- * @LastEditors: ranli
- * @LastEditTime: 2019-09-29 17:35:59
- */
-
-
-
-/*
  * @Description: 接口统一配置文件
+ * @Version: 1.1.0
+ * @Autor: ranli
+ * @Date: 2019-12-20 21:25:47
+ * @LastEditors  : ranli
+ * @LastEditTime : 2019-12-23 11:41:48
  */
+
 
 import axios from 'axios'
 import apiError from './apiError'
-import { appConfig } from '@/config'
+import {
+  appConfig
+} from '@/config'
 const md5 = require('js-md5')
 
 // 创建实例时设置配置的默认值
 const Service = axios.create({
   timeout: appConfig.TIMEOUT, // 超时
   baseURL: appConfig.requesUrl, // 路径
-  headers: { 'Content-Type': 'application/json; charset=UTF-8' }
+  headers: {
+    'Content-Type': 'application/json; charset=UTF-8'
+  }
 })
 // 添加请求拦截器
 Service.interceptors.request.use(
@@ -29,6 +29,11 @@ Service.interceptors.request.use(
     // 在发送请求之前做些什么
     if (config.method === 'post') {
       config.data = signature(config.data)
+    }
+    if (config.method === 'get') {
+      config.params = {
+        ...config.data
+      }
     }
     return config
   },
@@ -50,8 +55,6 @@ Service.interceptors.response.use(
     return apiError(error)
   }
 )
-
-
 
 /**
  * 签名

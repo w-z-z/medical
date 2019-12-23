@@ -1,9 +1,17 @@
+/*
+ * @Description: 表单验证方法
+ * @Version: 1.1.0
+ * @Autor: ranli
+ * @Date: 2019-12-20 21:25:48
+ * @LastEditors  : ranli
+ * @LastEditTime : 2019-12-23 11:29:15
+ */
 /**
  * 表单验证
  */
 
 class Validate {
-  constructor () {
+  constructor() {
     // 正则表达式
     this._regular = {
       // 手机号
@@ -35,7 +43,11 @@ class Validate {
    * @param {*} trigger 触发器
    */
   verifyRequired = (message = '不能为空！', trigger = 'change') => {
-    return {required: true, message: message, trigger: trigger}
+    return {
+      required: true,
+      message: message,
+      trigger: trigger
+    }
   }
 
   /**
@@ -169,4 +181,6 @@ class Validate {
 
 let validate = new Validate()
 
-export { validate }
+export {
+  validate
+}

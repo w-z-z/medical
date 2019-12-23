@@ -1,8 +1,8 @@
 /*
  * @Author: ranli
  * @Date: 2019-09-11 17:49:40
- * @LastEditors: lc
- * @LastEditTime: 2019-10-16 14:39:38
+ * @LastEditors  : ranli
+ * @LastEditTime : 2019-12-23 11:34:06
  * @Description: Description
  */
 /**
@@ -23,11 +23,3 @@ export const appConfig = {
   requesUrl: 'http://kaicaifront.hqt.com/',
   requesImgUrl: 'http://img.hqt.com/',
 }
-// // 持久化存储配置
-// const _loaclkey = 'APP_'
-// export const storageConfig = {
-//   // 用户缓存
-//   key: `${_loaclkey}USER_INFO`,
-//   // 版本缓存
-//   version: `${_loaclkey}VERSION`
-// }

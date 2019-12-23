@@ -1,8 +1,16 @@
+/*
+ * @Description: 样式入口文件
+ * @Version: 1.1.0
+ * @Autor: ranli
+ * @Date: 2019-12-22 14:22:15
+ * @LastEditors  : ranli
+ * @LastEditTime : 2019-12-23 11:24:14
+ */
 //引入reset文件
-@import './reset.scss' ;
+@import './reset.scss';
 
 
 //引入修改element全局修改的样式文件 推荐配置customClass
 
 
-@import './element.scss' 
+@import './element.scss'

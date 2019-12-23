@@ -14,7 +14,10 @@ import routers from './allRouter'
 Vue.use(Router)
 /*在跳转之前执行*/
 
-routers.unshift({ path: '/', redirect: '/login' })
+routers.unshift({
+  path: '/',
+  redirect: '/login'
+})
 // routers.unshift({ path: '*', component: '/login'})
 
 export const createRouter = () => new Router({

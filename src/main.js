@@ -1,3 +1,11 @@
+/*
+ * @Description: 项目入口文件
+ * @Version: 1.1.0
+ * @Autor: ranli
+ * @Date: 2019-12-22 18:24:54
+ * @LastEditors  : ranli
+ * @LastEditTime : 2019-12-23 11:23:49
+ */
 import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -20,21 +28,23 @@ Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
 
-  if(to.meta.isStatic){
+  if (to.meta.isStatic) {
     next()
-  }else{
+  } else {
     // 处理动态添加路由的刷新问题
-    console.log(router.hasAddRouter)
-    console.log(store.state.user.userInfo.type)
-    if(!router.hasAddRouter){
-      let _type=store.state.user.userInfo.type==1?personRouter:enterpriseRouter
-      store.dispatch("addRouters",_type)
-      next({ ...to, replace: true })
-    }
-    else{
+    // console.log(router.hasAddRouter)
+    // console.log(store.state.user.userInfo.type)
+    if (!router.hasAddRouter) {
+      let _type = store.state.user.userInfo.type == 1 ? personRouter : enterpriseRouter
+      store.dispatch("addRouters", _type)
+      next({
+        ...to,
+        replace: true
+      })
+    } else {
       next()
     }
-    
+
   }
 
 })
