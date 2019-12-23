@@ -3,8 +3,8 @@
  * @Version: 1.1.0
  * @Autor: ranli
  * @Date: 2019-12-20 21:25:47
- * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 11:41:48
+ * @LastEditors  : Seven
+ * @LastEditTime : 2019-12-23 14:48:54
  */
 
 
@@ -67,13 +67,13 @@ function signature(data = {}) {
   // if (_userInfo) {
   //   _auth_key = _userInfo.auth_key
   // }
-  const _key = 'C#uUcw5gIcI8PZqrVCt$$Qwx1qHNJJ'
-  const nowDate = Date.parse(new Date()) / 1000
-  const hash = md5(_auth_key + '' + nowDate + '' + _key)
-  signData['access_time'] = nowDate
-  signData['access_key'] = hash
-  signData['auth_key'] = _auth_key
-  signData['version'] = '1.0.0'
+  // const _key = 'C#uUcw5gIcI8PZqrVCt$$Qwx1qHNJJ'
+  // const nowDate = Date.parse(new Date()) / 1000
+  // const hash = md5(_auth_key + '' + nowDate + '' + _key)
+  // signData['access_time'] = nowDate
+  // signData['access_key'] = hash
+  // signData['auth_key'] = _auth_key
+  // signData['version'] = '1.0.0'
   return Object.assign(data, signData)
 }
 /**

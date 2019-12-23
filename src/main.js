@@ -3,8 +3,8 @@
  * @Version: 1.1.0
  * @Autor: ranli
  * @Date: 2019-12-22 18:24:54
- * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 11:23:49
+ * @LastEditors  : Seven
+ * @LastEditTime : 2019-12-23 15:09:41
  */
 import Vue from 'vue'
 import ElementUI from 'element-ui'
@@ -35,7 +35,7 @@ router.beforeEach((to, from, next) => {
     // console.log(router.hasAddRouter)
     // console.log(store.state.user.userInfo.type)
     if (!router.hasAddRouter) {
-      let _type = store.state.user.userInfo.type == 1 ? personRouter : enterpriseRouter
+      let _type = store.state.user.userInfo.type == 0 ? personRouter : enterpriseRouter
       store.dispatch("addRouters", _type)
       next({
         ...to,

@@ -1,0 +1,655 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 14px;
+    vertical-align: baseline;
+    background: transparent;
+    color: #333;
+}
+
+body {
+    line-height: 1;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+:focus {
+    outline: 1;
+}
+
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
+}
+
+ins {
+    background-color: #ff9;
+    color: #333;
+    text-decoration: none;
+}
+
+mark {
+    background-color: #ff9;
+    color: #333;
+    font-style: italic;
+    font-weight: bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+    border-bottom: 1px dotted #333;
+    cursor: help;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+input,
+select {
+    vertical-align: middle;
+}
+
+/* reset end */
+
+/* common start */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.container-fluid {
+    background-color: #F8F8F8;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tcl {
+    text-align: left;
+}
+
+
+/* margin */
+.mr0auto {
+    margin: 0 auto;
+}
+
+.mb30 {
+    margin-bottom: 30px;
+}
+
+.mb50 {
+    margin-bottom: 50px;
+}
+
+.mt25 {
+    margin-top: 25px;
+}
+
+.mt46 {
+    margin-top: 46px;
+}
+
+.mt60 {
+    margin-top: 60px;
+}
+
+.mt70 {
+    margin-top: 70px;
+}
+
+/* padding */
+.pd40 {
+    padding: 40px;
+}
+.pd30{
+    padding: 30px;
+}
+
+.pd44 {
+    padding: 44px;
+}
+
+.ptb55 {
+    padding: 44px 0;
+}
+
+.ptb162 {
+    padding: 162px 0;
+}
+
+/* 字体颜色 */
+.cfff {
+    color: #fff;
+}
+
+.c333 {
+    color: #333;
+}
+
+.c666 {
+    color: #666;
+}
+
+.c999 {
+    color: #999;
+}
+
+.c78D0C1 {
+    color: #78D0C1;
+}
+
+/* 字体加粗 */
+.fw400 {
+    font-weight: bold;
+}
+
+
+/* 字体大小 */
+.fs26 {
+    font-size: 26px;
+}
+
+.fs24 {
+    font-size: 24px;
+}
+
+.fs16 {
+    font-size: 16px;
+}
+
+.fs12 {
+    font-size: 12px;
+}
+
+/* 行高 */
+.lh20 {
+    line-height: 20px;
+}
+
+.lh30 {
+    line-height: 30px;
+}
+
+
+/* 背景色 */
+.bgcfff {
+    background-color: #fff;
+}
+
+.bgc88E6D6 {
+    background-color: #88E6D6;
+}
+
+.bgc78D0C1 {
+    background-color: #78D0C1;
+}
+
+
+
+
+.login-form {
+    .el-form-item {
+        margin-bottom: 50px;
+
+        .el-form-item__content {
+            text-align: center;
+        }
+
+    }
+}
+
+.reg,
+.login,
+#forget {
+    .el-form {
+        width: 390px;
+        position: relative;
+
+        .get-code {
+            position: absolute;
+            width: 80px;
+            height: 20px;
+            line-height: 20px;
+            padding: 0 20px;
+            font-size: 16px;
+            color: rgba(76, 155, 223, 1);
+            right: 7px;
+            top: 15px;
+            text-align: center;
+            border-left: 1px solid #dcdfe6;
+        }
+
+        .countdown {
+            color: #999 !important;
+        }
+
+        .url-tag {
+            color: #3686b9;
+        }
+
+        .el-form-item__label {
+            font-size: 18px;
+            color: #888;
+            margin-left: 30px;
+            padding: 0 !important;
+        }
+
+        .el-input__inner {
+            height: 50px;
+            border-radius: 25px;
+            text-indent: 15px;
+            font-size: 16px;
+
+            &::placeholder {
+                font-size: 16px;
+                text-indent: 15px;
+            }
+
+            &:focus {
+                border: 1px solid rgba(153, 153, 153, 1);
+            }
+        }
+
+        .el-input__suffix {
+            right: 16px;
+            top: 2px;
+
+            .el-input__icon {
+                font-size: 18px;
+
+            }
+        }
+
+        .el-form-item__error {
+            color: #FF7465;
+            text-indent: 20px;
+            line-height: 20px;
+
+            &::before {
+                content: '';
+                height: 16px;
+                width: 16px;
+                display: inline-block;
+                background: url('../images//login/jinggao.png') center no-repeat;
+                vertical-align: middle;
+                margin-right: 4px;
+            }
+        }
+
+        /* 下拉框/日历框 */
+        .el-select,
+        .el-date-editor {
+            width: 390px !important;
+
+            .is-focus {
+                .el-input__inner {
+                    border-color: rgba(153, 153, 153, 1) !important;
+                }
+            }
+
+            .el-input__inner {
+                &:focus {
+                    border-color: rgba(153, 153, 153, 1) !important;
+                }
+            }
+
+            .el-input__suffix {
+                right: 12px;
+            }
+
+            .el-icon-date {
+                font-size: 20px;
+            }
+
+            .el-input__prefix {
+                left: 16px;
+                top: 2px;
+            }
+        }
+
+        /* 选项 start */
+        .regular-check {
+            display: none;
+        }
+
+        .regular-check+label {
+            -webkit-appearance: none;
+            background-color: #fff;
+            display: inline-block;
+            position: relative;
+            top: 6px;
+            margin-left: 30px;
+            width: 20px;
+            height: 20px;
+            left: -10px;
+            border: 1px solid rgba(153, 153, 153, 1);
+        }
+
+        .regular-check:checked+label {
+            border: 1px solid #78D0C1;
+
+            &:after {
+                content: ' ';
+                width: 14px;
+                height: 14px;
+                position: absolute;
+                top: 3px;
+                background: #78D0C1;
+                box-shadow: 0px 0px 5px 0px #78D0C1;
+                left: 3px;
+            }
+        }
+
+        .check-label {
+            cursor: pointer;
+            color: #666;
+
+        }
+
+        /* 选项 end */
+
+        .el-form-item__content {
+            .el-button {
+                width: 162px;
+                height: 60px;
+                border: 1px solid rgba(120, 208, 193, 1);
+                border-radius: 15px;
+                color: #78D0C1;
+
+                &:disabled {
+                    opacity: 0.5;
+                    cursor: pointer;
+                }
+
+                span {
+                    font-size: 20px;
+
+                }
+
+                &:hover {
+                    background: none;
+                    color: none;
+                }
+
+                &.el-button--primary {
+                    background: linear-gradient(0deg, rgba(120, 208, 193, 1) 0%, rgba(120, 195, 208, 1) 100%);
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+// 下拉框选项
+.el-select-dropdown {
+    margin: 0 !important;
+    top: 627px;
+    border-radius: 20px !important;
+
+    .popper__arrow {
+        display: none !important;
+    }
+
+    .el-select-dropdown__list {
+        padding: 0;
+
+        .el-select-dropdown__item {
+
+            &.selected {
+                color: #5DCFBC;
+            }
+
+            &.selected::before {
+                background: url('../../assets/images/login/duihao.png') center no-repeat;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 6px;
+            }
+
+            &:first-child {
+                border-radius: 20px 20px 0 0;
+            }
+
+            &:last-child {
+                border-radius: 0 0 20px 20px;
+            }
+
+            span {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+
+
+/* 模态框 */
+.el-dialog {
+    .el-icon-close {
+        font-size: 24px;
+
+        &:hover {
+            color: #78D0C1 !important;
+
+        }
+    }
+
+    .dialog-footer {
+        .el-button {
+            width: 162px;
+            height: 60px;
+            border: 1px solid rgba(120, 208, 193, 1) !important;
+            border-radius: 15px;
+            color: #78D0C1 !important;
+
+            span {
+                font-size: 20px;
+
+            }
+
+            &:hover {
+                background: none;
+                color: none;
+            }
+        }
+
+    }
+}
+
+
+/* 忘记密码 */
+#forget {
+    .forget-content {
+        width: 917px;
+        height: 532px;
+        background: #fff;
+        box-shadow: 0px 3px 30px 0px rgba(54, 176, 185, 0.08);
+        border-radius: 25px;
+        margin: 0 auto;
+        padding: 40px 85px;
+
+        .progress {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            border-bottom: 5px solid #eee;
+            margin-bottom: 50px;
+
+            p {
+                font-size: 20px;
+                font-weight: bold;
+                color: #78D0C1;
+                line-height: 30px;
+                text-align: center;
+                display: inline-block;
+                width: 306px;
+                line-height: 60px;
+
+                &.step::after {
+                    content: '';
+                    height: 5px;
+                    width: 306px;
+                    background: #78D0C1;
+                    display: block;
+                    position: absolute;
+                }
+            }
+        }
+
+        .forget-form {
+            height: 350px;
+
+            .btn {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%);
+            }
+        }
+
+
+    }
+
+}

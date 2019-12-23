@@ -1,0 +1,30 @@
+{
+  "id": "1573455",
+  "name": "health",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4933188",
+      "name": "发现-眼睛",
+      "font_class": "faxian-yanjing",
+      "unicode": "e6de",
+      "unicode_decimal": 59102
+    },
+    {
+      "icon_id": "4933195",
+      "name": "关闭-眼睛",
+      "font_class": "guanbi-yanjing",
+      "unicode": "e6e3",
+      "unicode_decimal": 59107
+    },
+    {
+      "icon_id": "10056204",
+      "name": "听诊器",
+      "font_class": "tingzhenqi",
+      "unicode": "e6f1",
+      "unicode_decimal": 59121
+    }
+  ]
+}

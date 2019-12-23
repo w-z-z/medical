@@ -3,8 +3,8 @@
  * @Version: 1.1.0
  * @Autor: ranli
  * @Date: 2019-12-22 14:22:15
- * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 11:24:14
+ * @LastEditors  : Seven
+ * @LastEditTime : 2019-12-23 14:24:19
  */
 //引入reset文件
 @import './reset.scss';
@@ -13,4 +13,148 @@
 //引入修改element全局修改的样式文件 推荐配置customClass
 
 
-@import './element.scss'
+@import './element.scss';
+
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.container-fluid {
+    background-color: #F8F8F8;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tcl {
+    text-align: left;
+}
+
+
+/* margin */
+.mr0auto {
+    margin: 0 auto;
+}
+
+.mb30 {
+    margin-bottom: 30px;
+}
+
+.mb50 {
+    margin-bottom: 50px;
+}
+
+.mt25 {
+    margin-top: 25px;
+}
+
+.mt46 {
+    margin-top: 46px;
+}
+
+.mt60 {
+    margin-top: 60px;
+}
+
+.mt70 {
+    margin-top: 70px;
+}
+
+/* padding */
+.pd40 {
+    padding: 40px;
+}
+
+.pd30 {
+    padding: 30px;
+}
+
+.pd44 {
+    padding: 44px;
+}
+
+.ptb55 {
+    padding: 44px 0;
+}
+
+.ptb162 {
+    padding: 162px 0;
+}
+
+/* 字体颜色 */
+.cfff {
+    color: #fff;
+}
+
+.c333 {
+    color: #333;
+}
+
+.c666 {
+    color: #666;
+}
+
+.c999 {
+    color: #999;
+}
+
+.c78D0C1 {
+    color: #78D0C1;
+}
+
+/* 字体加粗 */
+.fw400 {
+    font-weight: bold;
+}
+
+
+/* 字体大小 */
+.fs26 {
+    font-size: 26px;
+}
+
+.fs24 {
+    font-size: 24px;
+}
+
+.fs16 {
+    font-size: 16px;
+}
+
+.fs12 {
+    font-size: 12px;
+}
+
+/* 行高 */
+.lh20 {
+    line-height: 20px;
+}
+
+.lh30 {
+    line-height: 30px;
+}
+
+
+/* 背景色 */
+.bgcfff {
+    background-color: #fff;
+}
+
+.bgc88E6D6 {
+    background-color: #88E6D6;
+}
+
+.bgc78D0C1 {
+    background-color: #78D0C1;
+}

@@ -3,8 +3,8 @@
  * @Version: 1.1.0
  * @Autor: ranli
  * @Date: 2019-12-20 21:25:48
- * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 11:29:15
+ * @LastEditors  : Seven
+ * @LastEditTime : 2019-12-23 15:27:21
  */
 /**
  * 表单验证
@@ -15,7 +15,7 @@ class Validate {
     // 正则表达式
     this._regular = {
       // 手机号
-      phone: /^[1][3,4,5,7,8][0-9]{9}$/,
+      mobile: /^[1][3,4,5,7,8,9][0-9]{9}$/,
       // 验证邮箱
       email: /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/,
       // 身份证
@@ -33,7 +33,9 @@ class Validate {
       // 中文，字母或特殊符号
       format2: /^[\u4e00-\u9fa5A-Za-z0-9,.!@$%^&*_+=;:、?./]+$/,
       // 字母，数字或特殊符号
-      format3: /^[A-Za-z0-9,.!@$%^&*_+=;:、?./]+$/
+      format3: /^[A-Za-z0-9,.!@$%^&*_+=;:、?./]+$/,
+      // 不少于6位
+      password: /^[0-9A-Za-z]{6,}$/
     }
   }
 
@@ -55,7 +57,7 @@ class Validate {
    */
   verifyPhone = (rule, value, callback) => {
     console.log(rule)
-    if (value && !this._regular.phone.test(value)) {
+    if (value && !this._regular.mobile.test(value)) {
       callback(new Error('请输入正确的手机号！'))
     } else {
       callback()
@@ -63,7 +65,7 @@ class Validate {
   }
 
   /**
-   * 验证手机号
+   * 验证邮箱
    */
   verifyEmail = (rule, value, callback) => {
     if (value && !this._regular.email.test(value)) {
@@ -160,6 +162,14 @@ class Validate {
       callback()
     }
   }
+
+  verifyPwd = (rule, value, callback) => {
+    if (value && !this._regular.password.test(value)) {
+      callback(new Error('长度不少于6位！'))
+    } else {
+      callback()
+    }
+  }
 }
 
 /*
@@ -177,7 +187,9 @@ class Validate {
       { validator: validate.verifyEmail, trigger: 'change' }
     ]
   }
+   
 */
+
 
 let validate = new Validate()
 

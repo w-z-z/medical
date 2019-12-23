@@ -1,8 +1,8 @@
 /*
  * @Author: ranli
  * @Date: 2019-09-11 17:49:40
- * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 11:34:06
+ * @LastEditors  : Seven
+ * @LastEditTime : 2019-12-23 14:48:25
  * @Description: Description
  */
 /**
@@ -20,6 +20,6 @@ export const appConfig = {
   TIMEOUT: 5000,
   // 接口请求
   // requesUrl: 'https://backend.facaijishi.cn' //正式环境
-  requesUrl: 'http://kaicaifront.hqt.com/',
+  requesUrl: 'http://192.168.0.116:8100/',
   requesImgUrl: 'http://img.hqt.com/',
 }
