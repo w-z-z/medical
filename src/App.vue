@@ -4,7 +4,7 @@
  * @Autor: ranli
  * @Date: 2019-12-22 18:51:42
  * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 12:00:03
+ * @LastEditTime : 2019-12-23 16:21:39
  -->
 <template>
   <div id="app">
@@ -16,7 +16,9 @@
 export default {
   name: "AppEntry",
   methods: {},
-  created() {}
+  created() {
+    console.log(this.$showMsg("hbfghf"));
+  }
 };
 </script>
 
