@@ -3,8 +3,8 @@
  * @Version: 1.1.0
  * @Autor: ranli
  * @Date: 2019-12-22 18:24:54
- * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 16:21:19
+ * @LastEditors  : Seven
+ * @LastEditTime : 2019-12-23 16:28:21
  */
 import Vue from 'vue'
 import ElementUI from 'element-ui'
