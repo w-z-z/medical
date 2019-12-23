@@ -4,7 +4,7 @@
  * @Autor: ranli
  * @Date: 2019-12-22 18:24:54
  * @LastEditors  : Seven
- * @LastEditTime : 2019-12-23 15:57:39
+ * @LastEditTime : 2019-12-23 16:28:21
  */
 import Vue from 'vue'
 import ElementUI from 'element-ui'
@@ -18,10 +18,12 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import personRouter from '@/router/routers/person'
 import enterpriseRouter from '@/router/routers/enterprise'
 import api from './api'
+import common from './utils/common'
 
 Vue.use(VueAwesomeSwiper)
 
 Vue.use(api)
+Vue.use(common)
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
