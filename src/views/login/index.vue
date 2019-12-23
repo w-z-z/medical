@@ -2,62 +2,45 @@
   <div id="login">
     <div class="container">
       <div class="top">
-        <img src="../../assets/images/login/logo-top.png"
-          alt />
+        <img src="../../assets/images/login/logo-top.png" alt />
       </div>
       <div class="login">
         <div class="login-box">
           <div class="login-head">
-            <p @click="changeActive('0')"
-              :class="active === '0' ? 'active' :''">个人用户</p>
-            <p @click="changeActive('1')"
-              :class="active === '1' ? 'active' :'' ">企业用户</p>
+            <p @click="changeActive('0')" :class="active === '0' ? 'active' :''">个人用户</p>
+            <p @click="changeActive('1')" :class="active === '1' ? 'active' :'' ">企业用户</p>
           </div>
           <div class="login-form">
-            <el-form class="mt60 person-pwd"
-              ref="loginFrom"
-              :rules="rules"
-              :model="loginForm">
+            <el-form class="mt60 person-pwd" ref="loginFrom" :rules="rules" :model="loginForm">
               <el-form-item prop="mobile">
-                <el-input placeholder="手机号码"
-                  clearable
-                  v-model="loginForm.mobile"></el-input>
+                <el-input placeholder="手机号码" clearable v-model="loginForm.mobile"></el-input>
               </el-form-item>
-              <el-form-item prop="password"
-                v-show="loginWay==='pwd'">
-                <el-input @click.native="changeEye"
+              <el-form-item prop="password" v-show="loginWay==='pwd'">
+                <el-input
+                  @click.native="changeEye"
                   :suffix-icon="isOpen ? 'iconfont icon-faxian-yanjing' : 'iconfont icon-guanbi-yanjing'"
                   :type="isOpen ? 'text' : 'password'"
                   placeholder="登录密码"
-                  v-model="loginForm.password"></el-input>
+                  v-model="loginForm.password"
+                ></el-input>
               </el-form-item>
-              <el-form-item prop="code"
-                v-show="loginWay==='code'">
-                <el-input placeholder="请输入短信验证码"
-                  v-model="loginForm.code"></el-input>
-                <a class="get-code"
-                  v-show="!timeShow"
-                  @click="sendcode">获取验证码</a>
-                <a class="get-code countdown"
-                  v-show="timeShow"
-                  @click="sendcode">{{ time }} 秒</a>
+              <el-form-item prop="code" v-show="loginWay==='code'">
+                <el-input placeholder="请输入短信验证码" v-model="loginForm.code"></el-input>
+                <a class="get-code" v-show="!timeShow" @click="sendcode">获取验证码</a>
+                <a class="get-code countdown" v-show="timeShow" @click="sendcode">{{ time }} 秒</a>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary"
-                  @click="logSubmit">登 录</el-button>
+                <el-button type="primary" @click="logSubmit">登 录</el-button>
               </el-form-item>
               <p class="tc">
                 <span class="log-icon"></span>
-                <a class="url-tag"
-                  @click="changeWay">{{ loginWay==='pwd'? '验证码': '密码' }}登录</a>
+                <a class="url-tag" @click="changeWay">{{ loginWay==='pwd'? '验证码': '密码' }}登录</a>
               </p>
             </el-form>
           </div>
           <div class="login-foot mt70">
-            <p class="fw400 c666"
-              @click="nextStep('/reg')">不是会员，去注册</p>
-            <p class="c999"
-              @click="nextStep('/forget')">忘记密码?</p>
+            <p class="fw400 c666" @click="nextStep('/register')">不是会员，去注册</p>
+            <p class="c999" @click="nextStep('/forgetPsd')">忘记密码?</p>
           </div>
         </div>
       </div>
@@ -141,6 +124,7 @@ export default {
           let userInfo = {
             type: this.active
           };
+          // 个人登录
           if (this.active === "0") {
             this.$api["personLogin"](this.loginForm)
               .then(res => {
@@ -157,6 +141,7 @@ export default {
                 });
               });
           } else {
+            // 企业登录
             this.$api["companyLogin"](this.loginForm).then(res => {
               userInfo["routers"] = enterpriseRouter;
               this.$store.dispatch("changeUserInfo", userInfo);
@@ -217,7 +202,7 @@ export default {
           }
         }
       }
-      .el-form-item{
+      .el-form-item {
         margin-bottom: 45px;
       }
       .log-icon {

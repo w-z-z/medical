@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Version: 2.0
+ * @Autor: Seven
+ * @Date: 2019-12-23 13:42:14
+ * @LastEditors  : Seven
+ * @LastEditTime : 2019-12-23 16:50:21
+ -->
 <template>
   <div>
     <Mheader></Mheader>
@@ -34,8 +42,6 @@ export default {
 
 <style lang="less">
 #content{
-  background-color: rgb(233, 233, 233);
   min-height: calc(100vh - 200px);
-  padding-top: 100px;
 }
 </style> 

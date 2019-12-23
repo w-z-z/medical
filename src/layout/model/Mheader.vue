@@ -4,7 +4,7 @@
  * @Autor: Seven
  * @Date: 2019-12-23 13:42:14
  * @LastEditors  : Seven
- * @LastEditTime : 2019-12-23 14:20:01
+ * @LastEditTime : 2019-12-23 18:38:24
  -->
 <template>
   <!-- <div id='header'>
@@ -20,11 +20,11 @@
       <img src="../../assets/images/login/logo.png" alt />
       <div>
         <button
-          v-show="this.$route.path==='/reg'"
+          v-show="this.$route.path.includes('forget')"
           class="reg-btn bgc78D0C1 cfff fw400 fs16"
         >不是会员，去注册</button>
         <button
-          v-show="this.$route.path.includes('step')"
+          v-show="this.$route.path.includes('register')"
           class="reg-btn bgc78D0C1 cfff fw400 fs16"
           @click="nextStep('/login')"
         >已是会员，去登录</button>
