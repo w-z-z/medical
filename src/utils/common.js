@@ -4,11 +4,14 @@
  * @Autor: ranli
  * @Date: 2019-12-23 15:53:12
  * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 16:24:38
+ * @LastEditTime : 2019-12-23 17:52:08
  */
 import {
   Message
 } from 'element-ui';
+import {
+  createRouter
+} from "@/router/index";
 
 let _type = {
   1: "warning",
@@ -30,7 +33,7 @@ class msgCalss {
     this.duration = duration
   }
 }
-
+//消息方法
 function showMsg(msg, type, duration, customClass) {
   let obj = {
     msg,
@@ -43,8 +46,18 @@ function showMsg(msg, type, duration, customClass) {
   }))
 }
 
+//清除所有数据并退出
+function clearAllUserData() {
+  this.$store.dispatch("changeUserInfo", {});
+  this.$router.hasAddRouter = false;
+  this.$router.matcher = createRouter().matcher;
+  this.$router.push({
+    name: "login"
+  });
+}
 export default {
   install(Vue) {
     Vue.prototype.$showMsg = showMsg;
+    Vue.prototype.$clearAllUserData = clearAllUserData;
   }
 }

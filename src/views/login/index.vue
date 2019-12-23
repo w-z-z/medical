@@ -102,8 +102,8 @@ export default {
       active: "0",
       loginWay: "pwd",
       loginForm: {
-        mobile: "",
-        password: "",
+        mobile: "18428378123",
+        password: "111111",
         code: ""
       },
       rules: {
@@ -174,11 +174,8 @@ export default {
                 this.$store.dispatch("changeUserInfo", userInfo);
                 this.$router.push({ name: "userCener" });
               })
-              .catch(err => {
-                this.$message({
-                  message: "接口错误",
-                  type: "error"
-                });
+              .catch(msg => {
+                this.$showMsg(msg);
               });
           } else {
             this.$api["companyLogin"](this.loginForm).then(res => {

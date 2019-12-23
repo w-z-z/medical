@@ -4,21 +4,19 @@
  * @Autor: ranli
  * @Date: 2019-12-22 17:19:55
  * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 11:25:59
+ * @LastEditTime : 2019-12-23 17:38:38
  */
 import router from '../../router/index'
 
 const state = {
-  userInfo: {
-    // name:"",
-    // type:"",//1 个人企业
-  },
+  userInfo: {},
   currentRouterType: 0 //0表示不用显示1表示显示
 }
 const mutations = {
   INCREMENT_CHANGEUSERINFO(state, data) {
     state.userInfo = data
   },
+  //添加路由
   ADD_ROUTER(state, addRouter) {
     if (!router.hasAddRouter) {
       router.addRoutes(addRouter)
@@ -44,7 +42,8 @@ const actions = {
     commit
   }, data) {
     commit('CURRENT_ROUTERTYPE', data)
-  }
+  },
+
 }
 export default {
   state,
