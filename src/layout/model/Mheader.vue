@@ -4,7 +4,7 @@
  * @Autor: Seven
  * @Date: 2019-12-23 13:42:14
  * @LastEditors  : Seven
- * @LastEditTime : 2019-12-23 18:38:24
+ * @LastEditTime : 2019-12-23 18:59:50
  -->
 <template>
   <!-- <div id='header'>
@@ -17,25 +17,20 @@
   </div>-->
   <div class="header">
     <div class="container comm-top">
-      <img src="../../assets/images/login/logo.png" alt />
+      <img src="../../assets/images/login/logo.png"
+        alt />
       <div>
-        <button
-          v-show="this.$route.path.includes('forget')"
+        <button v-show="this.$route.path==='/reg'"
+          class="reg-btn bgc78D0C1 cfff fw400 fs16">不是会员，去注册</button>
+        <button v-show="this.$route.path.includes('step')"
           class="reg-btn bgc78D0C1 cfff fw400 fs16"
-        >不是会员，去注册</button>
-        <button
-          v-show="this.$route.path.includes('register')"
-          class="reg-btn bgc78D0C1 cfff fw400 fs16"
-          @click="nextStep('/login')"
-        >已是会员，去登录</button>
+          @click="nextStep('/login')">已是会员，去登录</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { createRouter } from "../../router/index";
-
 export default {
   name: "Mheader",
   data() {
@@ -49,13 +44,6 @@ export default {
     // fff(c) {
     //   this.$router.push(c);
     // },
-    // loginOut() {
-    //   //清空数据
-    //   this.$store.dispatch("changeUserInfo", {});
-    //   this.$router.hasAddRouter = false;
-    //   this.$router.matcher = createRouter().matcher;
-    //   this.$router.push({ name: "login" });
-    // }
   },
   created() {},
   mounted() {},

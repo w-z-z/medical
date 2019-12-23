@@ -3,13 +3,16 @@
  * @Version: 1.1.0
  * @Autor: ranli
  * @Date: 2019-12-20 21:25:47
- * @LastEditors  : Seven
- * @LastEditTime : 2019-12-23 14:48:54
+ * @LastEditors  : ranli
+ * @LastEditTime : 2019-12-23 17:56:32
  */
 
 
 import axios from 'axios'
 import apiError from './apiError'
+import store from '@/store'
+import router from '@/router'
+import Vue from 'vue'
 import {
   appConfig
 } from '@/config'
@@ -47,12 +50,21 @@ Service.interceptors.request.use(
 Service.interceptors.response.use(
   response => {
     // 对响应数据做点什么
-
     return response.data;
   },
   error => {
     // 对响应错误做点什么
-    return apiError(error)
+    let {
+      Key, //key
+      Msg, //文本信息
+    } = error.response.data
+    //未登录key
+    if (Key == appConfig.UnLoginCode) {
+      store.dispatch("changeUserInfo", null).then(() => {
+        console.log("登录失效")
+      })
+    }
+    return apiError(Msg)
   }
 )
 

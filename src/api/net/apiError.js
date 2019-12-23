@@ -3,12 +3,10 @@
  * @Author: chenwei
  * @Date: 2019-06-05 17:22:57
  * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 15:50:47
+ * @LastEditTime : 2019-12-23 17:09:45
  */
 
-export default error => {
+export default (error) => {
   // 错误处理
-  // console.log(error)
-
   return Promise.reject(error)
 }

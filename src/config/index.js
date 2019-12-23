@@ -1,8 +1,8 @@
 /*
  * @Author: ranli
  * @Date: 2019-09-11 17:49:40
- * @LastEditors  : Seven
- * @LastEditTime : 2019-12-23 14:48:25
+ * @LastEditors  : ranli
+ * @LastEditTime : 2019-12-23 17:18:56
  * @Description: Description
  */
 /**
@@ -18,7 +18,8 @@ export const appConfig = {
   storage: window.localStorage,
   // 超时设置
   TIMEOUT: 5000,
-  // 接口请求
+  UnLoginCode: "AuthorizationServerError",
+  // 接口请求,
   // requesUrl: 'https://backend.facaijishi.cn' //正式环境
   requesUrl: 'http://192.168.0.116:8100/',
   requesImgUrl: 'http://img.hqt.com/',
