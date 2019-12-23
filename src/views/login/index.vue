@@ -11,7 +11,7 @@
             <p @click="changeActive('1')" :class="active === '1' ? 'active' :'' ">企业用户</p>
           </div>
           <div class="login-form">
-            <el-form class="mt60 person-pwd" ref="loginFrom" :rules="rules" :model="loginForm">
+            <el-form class="mt60 person-pwd" ref="loginFrom" :rules="newRules" :model="loginForm">
               <el-form-item prop="mobile">
                 <el-input placeholder="手机号码" clearable v-model="loginForm.mobile"></el-input>
               </el-form-item>
@@ -149,6 +149,27 @@ export default {
           return false;
         }
       });
+    }
+  },
+  computed: {
+    newRules() {
+      let val = {
+        mobile: [
+          validate.verifyRequired("手机不能为空！"),
+          { validator: validate.verifyPhone, trigger: "change" }
+        ]
+      };
+      console.log(this.loginWay);
+      
+      if (this.loginWay === "pwd") {
+        val.password = [
+          validate.verifyRequired("密码不能为空！"),
+          { validator: validate.verifyPwd, trigger: "change" }
+        ];
+      } else {
+       val.code = [validate.verifyRequired("短信验证码不能为空！")];
+      }
+      return val
     }
   }
 };
