@@ -1,4 +1,11 @@
-
+/*
+ * @Description: 文件描述
+ * @Version: 1.1.0
+ * @Autor: ranli
+ * @Date: 2019-12-24 10:29:31
+ * @LastEditors: ranli
+ * @LastEditTime: 2020-01-08 14:44:52
+ */
 /**
  * form参数设置
  */
@@ -8,7 +15,10 @@ class DialogConfigClass {
     title = "提 示",
     width = "50%",
     okBtn = new BtnConfigClass(),
-    noBtn = new BtnConfigClass({ label: '取 消', type: 'default' }),
+    noBtn = new BtnConfigClass({
+      label: '取 消',
+      type: 'default'
+    }),
     beforeClose = null,
     align = 'left',
     btnSize = '',
@@ -16,7 +26,7 @@ class DialogConfigClass {
     top = '15vh',
     modal = true,
     lockScroll = true,
-    customClass = '',
+    customClass = 'medicalDialog',
     closeOnClickModal = false,
     closeOnPressEscape = false,
     showClose = true,
@@ -73,4 +83,7 @@ class BtnConfigClass {
   }
 }
 
-export { DialogConfigClass, BtnConfigClass }
+export {
+  DialogConfigClass,
+  BtnConfigClass
+}

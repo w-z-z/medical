@@ -1,24 +1,30 @@
+<!--
+ * @Description: 文件描述
+ * @Version: 1.1.0
+ * @Autor: ranli
+ * @Date: 2019-12-24 10:29:31
+ * @LastEditors  : ranli
+ * @LastEditTime : 2019-12-24 13:46:25
+ -->
 <template>
   <div :class='["bsBlock"]'>
 
   </div>
 </template>
-
 <script>
-// import { hasPermission } from '@/permission/index.js'
 export default {
-  name: 'BsCell',
+  name: "bsBlock",
   props: {
-    label: {  // 按钮显示文本
+    label: {
+      // 按钮显示文本
       type: String,
-      default: "",
-    },
-  },
-  data () {
-    return {
+      default: ""
     }
   },
-}
+  data() {
+    return {};
+  }
+};
 </script>
 <style lang="scss" scoped>
 .bsBlock {

@@ -68,11 +68,11 @@ export default {
   methods: {
     // 确定回调事件
     submitForm(formName) {
-      console.log("确定回调");
+      // console.log("确定回调");
     },
     // 重置回调事件
     resetForm(formName) {
-      console.log("重置回调");
+      // console.log("重置回调");
     }
   },
   created() {},

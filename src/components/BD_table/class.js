@@ -1,4 +1,3 @@
-
 /**
  * table 头部
  */
@@ -122,4 +121,8 @@ class TableConfigClass {
 }
 
 
-export { TableHeadClass, PagingClass, TableConfigClass }
+export {
+  TableHeadClass,
+  PagingClass,
+  TableConfigClass
+}

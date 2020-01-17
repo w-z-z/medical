@@ -4,11 +4,13 @@
  * @Autor: ranli
  * @Date: 2019-12-22 17:19:55
  * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 11:27:18
+ * @LastEditTime : 2020-01-10 19:22:42
  */
 
 import template from '@/views/template/index.vue'
 import layout from '@/layout/index.vue'
+import insideLayout from '@/components/insideLayout/index.vue'
+
 export default [{
     id: 123456,
     title: "布局",
@@ -22,32 +24,49 @@ export default [{
     redirect: '/userCener',
     children: [{
       id: 123456,
-      title: "会员中心",
+      title: "个人中心",
       name: "userCener",
       meta: {
-        title: "会员中心",
+        title: "个人中心",
       },
       path: '/userCener',
-      component: () => import('@/views/person/index.vue'),
-      redirect: '/userCener/setUserInfo',
+      component: insideLayout,
+      redirect: '/userCener/userCenerHome',
       children: [{
           id: 123456,
-          title: "设置个人",
+          title: "",
           meta: {
-            title: "设置个人",
+            title: "",
+          },
+          name: "userCenerHome",
+          path: '/userCener/userCenerHome',
+          component: () => import('@/views/person/index.vue'),
+        },
+        {
+          id: 123456,
+          title: "设置信息",
+          meta: {
+            title: "设置信息",
           },
           name: "setUserInfo",
           path: '/userCener/setUserInfo',
           component: () => import('@/views/person/setUserInfo/index.vue'),
-          children: [
-
-          ]
         },
         {
           id: 123456,
-          title: "基因检测报告",
+          title: "修改密码",
           meta: {
-            title: "基因检测报告",
+            title: "修改密码",
+          },
+          name: "mobileModify",
+          path: '/userCener/mobileModify',
+          component: () => import('@/views/person/setUserInfo/model/mobileModify.vue'),
+        },
+        {
+          id: 123456,
+          title: "检测报告",
+          meta: {
+            title: "检测报告",
           },
           name: "GeneTestReport",
           path: '/userCener/GeneTestReport',
@@ -74,12 +93,23 @@ export default [{
           name: "healthRecord",
           path: '/userCener/healthRecord',
           component: template,
-          redirect: '/userCener/healthRecord/addRecord',
+          redirect: '/userCener/healthRecord/healthRecordList',
           children: [{
               id: 123456,
-              title: "添加健康档案",
+              title: "",
               meta: {
-                title: "添加健康档案",
+                title: "",
+              },
+              name: "healthRecordList",
+              path: '/userCener/healthRecord/healthRecordList',
+              component: () => import('@/views/person/healthRecord/index.vue'),
+              children: []
+            },
+            {
+              id: 123456,
+              title: "新增健康档案",
+              meta: {
+                title: "新增健康档案",
               },
               name: "addRecord",
               path: '/userCener/healthRecord/addRecord',
@@ -93,8 +123,8 @@ export default [{
                 title: "编辑健康档案",
               },
               name: "editRecord",
-              path: '/userCener/healthRecord/editRecord',
-              component: () => import('@/views/person/healthRecord/editRecord.vue'),
+              path: '/userCener/healthRecord/editRecord/:id',
+              component: () => import('@/views/person/healthRecord/addRecord.vue'),
             },
           ]
         },
@@ -109,6 +139,7 @@ export default [{
           component: () => import('@/views/person/MedicalReports/index.vue'),
           children: []
         },
+
         {
           id: 123456,
           title: "消息中心",
@@ -121,9 +152,9 @@ export default [{
           redirect: '/userCener/messageList',
           children: [{
               id: 123456,
-              title: "消息列表",
+              title: "",
               meta: {
-                title: "消息列表",
+                title: "",
               },
               name: "messageList",
               path: '/userCener/messageList',
@@ -137,7 +168,7 @@ export default [{
                 title: "消息详情",
               },
               name: "messageDetail",
-              path: '/userCener/messageDetail',
+              path: '/userCener/messageDetail/:id',
               component: () => import('@/views/message/detail.vue'),
             },
           ]

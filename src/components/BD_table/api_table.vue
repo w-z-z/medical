@@ -1,14 +1,13 @@
 <template>
   <div>
     <BDtable :tableHead="tableHead"
-      @select='select'
+      @select="select"
       @sizeChange="sizeChange"
       :tableConfig="tableConfig"
       v-loading="loading"
       element-loading-text="拼命加载中"
       element-loading-spinner="el-icon-loading"
-      element-loading-background="rgba(0, 0, 0, 0.8)">
-    </BDtable>
+      element-loading-background="rgba(0, 0, 0, 0.8)"></BDtable>
   </div>
 </template>
 
@@ -36,8 +35,10 @@ export default {
       tableConfig: {
         tableData: [],
         pagingPar: {
-          total: 0
+          total: 0,
+          isShow: false
         },
+        showSummary: null,
         // height: 200,
         // maxHeight: "200"
         // stripe: true,
@@ -97,38 +98,25 @@ export default {
     },
     // 获取接口数据
     getData() {
-      let { apiName, apiParam } = this.apiData;
-      console.log(apiName)
-      console.log(apiParam)
       this.loading = true;
-       //模拟数据
-        this.tableConfig.tableData =[
-              {win_odds:10},
-              {win_odds:10},
-              {win_odds:10},
-            ];
-        this.tableConfig.pagingPar.total = Number(20);
-        this.loading = false;
-      // setTimeout(() => {
-      //   let { apiName, apiParam } = this.apiData;
-      //   if (apiName && typeof apiParam === "object") {
-      //     this.$api[apiName](apiParam).then(res => {
-      //       let _data = res.data;
-      //       this.tableConfig.tableData = _data.datas;
-      //       this.tableConfig.pagingPar.total = Number(_data.total_count);
-      //       this.loading = false;
-      //     });
-      //   } else {
-      //     console.error("请传入正确的接口参数");
-      //   }
-      // }, 200);
-
-
-
+      let { apiName, apiParam, timeParamsKey } = this.apiData;
+      let newParams = Object.assign({}, apiParam);
+      // console.log(this.apiData);
+      // console.log(newParams);
+      newParams[timeParamsKey] = newParams[timeParamsKey] / 1000;
+      if (apiName && typeof apiParam === "object") {
+        this.$api[apiName](newParams).then(res => {
+          this.tableConfig.tableData = res;
+          this.tableConfig.pagingPar.total = Number(10);
+          this.loading = false;
+        });
+      } else {
+        console.error("请传入正确的接口参数");
+      }
     },
     // 分页改变
     sizeChange(obj) {
-      this.apiData.apiParam.page = obj.page;
+      this.apiData.apiParam.page_no = obj.page_no;
       this.apiData.apiParam.page_size = obj.pageSize;
       this.$emit("returnBack", this.apiData);
       this.getData();
@@ -141,7 +129,7 @@ export default {
        */
       if (type == 2) {
         this.tableConfig.pagingPar.currentPage = 1;
-        this.apiData.apiParam.page = 1;
+        this.apiData.apiParam.page_no = 1;
       }
       this.getData();
     }

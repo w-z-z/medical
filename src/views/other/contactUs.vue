@@ -2,22 +2,24 @@
  * @Description: 
  * @Version: 2.0
  * @Autor: Seven
- * @Date: 2019-12-23 17:10:29
- * @LastEditors: Seven
- * @LastEditTime: 2019-12-23 17:10:46
+ * @Date: 2019-12-28 11:16:45
+ * @LastEditors  : ranli
+ * @LastEditTime : 2020-01-09 13:10:09
  -->
 <template>
-    <div>
-        联系我们
-    </div>
+  <div>
+    <webSet api="Contact"></webSet>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+import webSet from "./model/common";
+export default {
+  components: {
+    webSet
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>

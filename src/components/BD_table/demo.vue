@@ -105,7 +105,7 @@ export default {
           cp_key: "jczq",
           date: "2019-09-25",
           page: 1,
-          content:"ddd1",
+          content: "ddd1",
           page_size: 10,
           temp: 0
         }
@@ -259,18 +259,18 @@ export default {
 
     // 获取接口数据
     getData() {
-       let { apiName, apiParam } = this.apiData;
-      console.log(apiName)
-      console.log(apiParam)
+      let { apiName, apiParam } = this.apiData;
+      console.log(apiName);
+      console.log(apiParam);
       this.loading = true;
-       //模拟数据
-        this.tableConfig.tableData =[
-              {win_odds:10},
-              {win_odds:10},
-              {win_odds:10},
-            ];
-        this.tableConfig.pagingPar.total = Number(20);
-        this.loading = false;
+      //模拟数据
+      this.tableConfig.tableData = [
+        { win_odds: 10 },
+        { win_odds: 10 },
+        { win_odds: 10 }
+      ];
+      this.tableConfig.pagingPar.total = Number(20);
+      this.loading = false;
       // this.loading = true;
       // setTimeout(() => {
       //   let { apiName, apiParam } = this.apiData2;

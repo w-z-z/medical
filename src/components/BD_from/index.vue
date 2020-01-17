@@ -1,12 +1,30 @@
+<!--
+ * @Description: 文件描述
+ * @Version: 1.1.0
+ * @Autor: ranli
+ * @Date: 2019-12-27 20:32:13
+ * @LastEditors  : ranli
+ * @LastEditTime : 2020-01-13 15:08:26
+ -->
+<!--
+ * @Description: 
+ * @Version: 2.0
+ * @Autor: Seven
+ * @Date: 2019-12-23 20:27:01
+ * @LastEditors  : ranli
+ * @LastEditTime : 2020-01-02 12:54:41
+ -->
 <template>
   <el-form :model="formData"
     v-bind="{...renderFromConfig}">
     <slot></slot>
     <slot name="slot-btn">
       <el-form-item>
-        <el-button @click="submitForm()"
+        <el-button :class="renderFromConfig.okBtn.costomClass"
+          @click="submitForm()"
           v-bind="renderFromConfig.okBtn">{{renderFromConfig.okBtn.label}}</el-button>
         <el-button @click="resetForm()"
+          v-if="renderFromConfig.noBtn.show"
           v-bind="renderFromConfig.noBtn">{{renderFromConfig.noBtn.label}}</el-button>
       </el-form-item>
     </slot>
@@ -47,7 +65,7 @@ export default {
         if (valid) {
           this.$emit("submitForm");
         } else {
-          console.log("验证不通过");
+          // console.log("验证不通过");
           return false;
         }
       });

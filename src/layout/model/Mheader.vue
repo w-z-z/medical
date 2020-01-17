@@ -3,51 +3,85 @@
  * @Version: 2.0
  * @Autor: Seven
  * @Date: 2019-12-23 13:42:14
- * @LastEditors  : Seven
- * @LastEditTime : 2019-12-23 18:59:50
+ * @LastEditors  : ranli
+ * @LastEditTime : 2020-01-13 15:20:15
  -->
 <template>
-  <!-- <div id='header'>
-   header
-   <button @click="fff('/login')">登录</button>
-   <button @click="fff('/forgetPsd')">忘记密码</button>
-   <button @click="fff('/NotFound')">404</button>
-   <button @click="fff('/register')">注册</button>
-   <button @click="loginOut">退出</button>
-  </div>-->
   <div class="header">
     <div class="container comm-top">
-      <img src="../../assets/images/login/logo.png"
+      <img class="logoImg"
+        @click="$router.push('/')"
+        src="../../assets/images/login/logo.png"
         alt />
-      <div>
-        <button v-show="this.$route.path==='/reg'"
-          class="reg-btn bgc78D0C1 cfff fw400 fs16">不是会员，去注册</button>
-        <button v-show="this.$route.path.includes('step')"
-          class="reg-btn bgc78D0C1 cfff fw400 fs16"
-          @click="nextStep('/login')">已是会员，去登录</button>
+      <div v-if="userInfo.token">
+        <div @click="loginOut()"
+          class="loginOut">
+          <img :src="loginOutImg"
+            alt="">
+          <span>
+            退出
+          </span>
+        </div>
+      </div>
+      <div v-else>
+        <div v-if="routerName=='forgetPsd'">
+          <button @click="nextStep('personReg')"
+            class="reg-btn bgc78D0C1 cfff fw400 fs16">不是会员，去注册</button>
+        </div>
+        <div v-if="routerName=='personReg'">
+          <button class="reg-btn bgc78D0C1 cfff fw400 fs16"
+            @click="nextStep('login')">已是会员，去登录</button>
+        </div>
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import loginOutImg from "../../assets/images/login/loginOut.png";
+import { mapGetters } from "vuex";
 export default {
   name: "Mheader",
   data() {
-    return {};
+    return { loginOutImg };
   },
-  computed: {},
+
   methods: {
     nextStep(path) {
-      this.$router.push(`${path}`);
+      this.$router.push({
+        name: path
+      });
+    },
+    loginOut() {
+      this.$confirm("确定要退出登录吗?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消"
+        // type: "warning"
+      })
+        .then(() => {
+          this.$api["personLoginOut"]()
+            .then(succ => {
+              // this.$router.push({
+              //   name: "login"
+              // });
+              this.$clearAllUserData.call(this);
+            })
+            .catch(err => {
+              this.$showMsg("退出登录失败");
+            });
+        })
+        .catch(() => {});
     }
-    // fff(c) {
-    //   this.$router.push(c);
-    // },
   },
+
   created() {},
-  mounted() {},
-  watch: {}
+  computed: {
+    ...mapGetters(["userInfo"]),
+    routerName() {
+      return this.$route.name;
+    }
+  }
 };
 </script>
 
@@ -61,11 +95,16 @@ export default {
 //   left: 0;
 // }
 .header {
+  .logoImg {
+    cursor: pointer;
+  }
   .comm-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 0;
+    padding: 23px 0;
+    height: 80px;
+    box-sizing: border-box;
     .reg-btn {
       width: 156px;
       height: 52px;
@@ -73,6 +112,25 @@ export default {
       border: 0;
       padding: 0;
       outline: none;
+    }
+  }
+  .loginOut {
+    padding: 8px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    img {
+      width: 16px;
+      margin-right: 14px;
+      vertical-align: middle;
+    }
+    display: inline-block;
+    span {
+      vertical-align: middle;
+      font-size: 12px;
+      color: rgba(153, 153, 153, 1);
+    }
+    &:hover {
+      box-shadow: 5px 5px 5px #eeeeee;
     }
   }
 }

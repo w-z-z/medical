@@ -2,7 +2,7 @@
  * @Author: ranli
  * @Date: 2019-09-26 15:21:16
  * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 11:42:48
+ * @LastEditTime : 2019-12-26 13:03:14
  * @Description: Description
  */
 /*
@@ -13,7 +13,13 @@ import Url from './url'
 import Service from './net/http'
 export let api = Url.reduce((apiObj, u) => {
   let methods = u.methods || 'post'
-  apiObj[u.name] = data => Service[methods](u.url, data)
+  if (methods == 'post') {
+    apiObj[u.name] = data => Service[methods](u.url, data)
+  } else {
+    apiObj[u.name] = data => Service[methods](u.url, {
+      params: data
+    })
+  }
   return apiObj
 }, {})
 

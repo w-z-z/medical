@@ -4,13 +4,8 @@
  * @Autor: ranli
  * @Date: 2019-12-20 21:25:48
  * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 11:28:05
+ * @LastEditTime : 2019-12-27 14:08:21
  */
-export {
-  parseTime,
-  formatTime
-}
-from '@/utils'
 
 /**
  * Show plural label if time is plural number

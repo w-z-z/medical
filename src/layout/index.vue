@@ -3,45 +3,49 @@
  * @Version: 2.0
  * @Autor: Seven
  * @Date: 2019-12-23 13:42:14
- * @LastEditors  : Seven
- * @LastEditTime : 2019-12-23 16:50:21
+ * @LastEditors  : ranli
+ * @LastEditTime : 2020-01-13 15:18:18
  -->
 <template>
   <div>
     <Mheader></Mheader>
+    <!-- {{!getCurrentRouterType}} -->
     <!-- 内容 -->
     <section id="content">
-    <router-view></router-view>
+      <router-view></router-view>
     </section>
-    <Mfooter></Mfooter>
+    <Mfooter v-if="!getCurrentRouterType"></Mfooter>
   </div>
 </template>
 
 <script>
-import Mheader from './model/Mheader'
-import Mfooter from './model/Mfooter'
+import Mheader from "./model/Mheader";
+import Mfooter from "./model/Mfooter";
+import { mapGetters } from "vuex";
 export default {
-  name: '',
-  components: {   
-     Mfooter, Mheader
+  name: "",
+  components: {
+    Mfooter,
+    Mheader
   },
-  data () {
-    return {
-    }
+  data() {
+    return {};
   },
-  computed: {},
-  methods: {
-    
+  computed: {
+    ...mapGetters(["getCurrentRouterType"])
   },
-  created () {
-  },
-  mounted () { },
+  methods: {},
+  created() {},
+  mounted() {},
   watch: {}
-}
+};
 </script>
 
 <style lang="less">
-#content{
-  min-height: calc(100vh - 200px);
+#content {
+  min-height: 773px;
+  background-color: #f8f8f8;
+  padding-bottom: 40px;
+  box-sizing: border-box;
 }
 </style> 

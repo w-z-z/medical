@@ -4,7 +4,7 @@
  * @Autor: ranli
  * @Date: 2019-12-20 21:25:47
  * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 17:56:32
+ * @LastEditTime : 2020-01-15 14:13:00
  */
 
 
@@ -12,31 +12,30 @@ import axios from 'axios'
 import apiError from './apiError'
 import store from '@/store'
 import router from '@/router'
-import Vue from 'vue'
 import {
   appConfig
 } from '@/config'
 const md5 = require('js-md5')
-
 // 创建实例时设置配置的默认值
+
 const Service = axios.create({
   timeout: appConfig.TIMEOUT, // 超时
-  baseURL: appConfig.requesUrl, // 路径
+  // baseURL: appConfig.requesUrl, // 路径
+  baseURL: process.env.VUE_APP_API_URL, // 路径
   headers: {
-    'Content-Type': 'application/json; charset=UTF-8'
+    'Content-Type': 'application/json; charset=UTF-8',
   }
 })
 // 添加请求拦截器
 Service.interceptors.request.use(
   config => {
-    // 在发送请求之前做些什么
+    // console.log(store.state.user.userInfo)
+    let _token = store.state.user.userInfo && store.state.user.userInfo.token ? store.getters.userInfo.token : ""
+    if (_token) {
+      config.headers.Authorization = _token
+    }
     if (config.method === 'post') {
       config.data = signature(config.data)
-    }
-    if (config.method === 'get') {
-      config.params = {
-        ...config.data
-      }
     }
     return config
   },
@@ -45,26 +44,30 @@ Service.interceptors.request.use(
     return Promise.reject(error)
   }
 )
-
 // 添加响应拦截器
 Service.interceptors.response.use(
   response => {
     // 对响应数据做点什么
-    return response.data;
+    if (response.data) {
+      return response.data;
+    } else {
+      return "";
+    }
   },
   error => {
-    // 对响应错误做点什么
-    let {
-      Key, //key
-      Msg, //文本信息
-    } = error.response.data
-    //未登录key
-    if (Key == appConfig.UnLoginCode) {
-      store.dispatch("changeUserInfo", null).then(() => {
-        console.log("登录失效")
-      })
+    if (error.response.data) {
+      let {
+        Key, //key
+        Msg, //文本信息
+      } = error.response.data
+      // 未登录key
+      if (Key == appConfig.UnLoginCode) {
+        store.dispatch("clearAllUserData")
+      }
+      return apiError(Msg)
+    } else {
+      return apiError('加载错误')
     }
-    return apiError(Msg)
   }
 )
 
@@ -74,7 +77,9 @@ Service.interceptors.response.use(
  */
 function signature(data = {}) {
   let signData = {}
-  let _auth_key = ''
+  // let _auth_key = ''
+
+  // signData['token'] = token
   // let _userInfo = store.getters.userInfo;
   // if (_userInfo) {
   //   _auth_key = _userInfo.auth_key
@@ -86,6 +91,7 @@ function signature(data = {}) {
   // signData['access_key'] = hash
   // signData['auth_key'] = _auth_key
   // signData['version'] = '1.0.0'
+
   return Object.assign(data, signData)
 }
 /**

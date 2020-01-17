@@ -3,8 +3,8 @@
  * @Version: 1.1.0
  * @Autor: ranli
  * @Date: 2019-12-20 21:25:48
- * @LastEditors  : Seven
- * @LastEditTime : 2019-12-23 15:27:21
+ * @LastEditors  : ranli
+ * @LastEditTime : 2020-01-09 15:12:24
  */
 /**
  * 表单验证
@@ -35,7 +35,9 @@ class Validate {
       // 字母，数字或特殊符号
       format3: /^[A-Za-z0-9,.!@$%^&*_+=;:、?./]+$/,
       // 不少于6位
-      password: /^[0-9A-Za-z]{6,}$/
+      password: /^[0-9A-Za-z]{6,}$/,
+      //中文名字
+      chinsesName: /^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/,
     }
   }
 
@@ -56,7 +58,7 @@ class Validate {
    * 验证手机号
    */
   verifyPhone = (rule, value, callback) => {
-    console.log(rule)
+    // console.log(rule)
     if (value && !this._regular.mobile.test(value)) {
       callback(new Error('请输入正确的手机号！'))
     } else {
@@ -118,6 +120,16 @@ class Validate {
       callback()
     }
   }
+  /**
+   * 验证中文名
+   */
+  verifyChinsesName = (rule, value, callback) => {
+    if (value && !this._regular.chinsesName.test(value)) {
+      callback(new Error('请输入合法的中文名字'))
+    } else {
+      callback()
+    }
+  }
 
   /**
    * 验证小写字母
@@ -162,7 +174,7 @@ class Validate {
       callback()
     }
   }
-
+  //验证密码长度
   verifyPwd = (rule, value, callback) => {
     if (value && !this._regular.password.test(value)) {
       callback(new Error('长度不少于6位！'))

@@ -3,68 +3,97 @@
  * @Version: 2.0
  * @Autor: Seven
  * @Date: 2019-12-23 16:23:45
- * @LastEditors  : Seven
- * @LastEditTime : 2019-12-23 17:58:48
+ * @LastEditors  : ranli
+ * @LastEditTime : 2020-01-10 12:44:49
  -->
 <template>
   <div class="company-step">
     <div class="company-reg ptb55 mr0auto bgcfff">
       <h1 class="tc fs24 c333 mb30 fw400">申请会员</h1>
-      <el-form
-        class="mr0auto"
+      <el-form class="mr0auto"
         label-position="top"
         label-width="80px"
         hide-required-asterisk
         ref="regcompanyform"
         :model="regcompanyform"
-        :rules="rules"
-      >
-        <el-form-item label="手机号码" prop="mobile">
-          <el-input placeholder="请输入手机号码" clearable v-model="regcompanyform.mobile"></el-input>
+        :rules="rules">
+        <el-form-item label="手机号码"
+          prop="mobile">
+          <el-input placeholder="请输入手机号码"
+            clearable
+            v-model="regcompanyform.mobile"></el-input>
         </el-form-item>
-        <el-form-item label="验证码" prop="code">
-          <el-input placeholder="请输入短信验证码" v-model="regcompanyform.code"></el-input>
-          <a class="get-code" v-show="!timeShow" @click="sendcode">获取验证码</a>
-          <a class="get-code countdown" v-show="timeShow" @click="sendcode">{{ time }} 秒</a>
+        <el-form-item label="验证码"
+          prop="code">
+          <el-input placeholder="请输入短信验证码"
+            v-model="regcompanyform.code"></el-input>
+          <a class="get-code"
+            v-show="!timeShow"
+            @click="sendcode">获取验证码</a>
+          <a class="get-code countdown"
+            v-show="timeShow"
+            @click="sendcode">{{ time }} 秒</a>
         </el-form-item>
-        <el-form-item label="登录密码" prop="password">
-          <el-input
-            @click.native="changeEye"
+        <el-form-item label="登录密码"
+          prop="password">
+          <el-input @click.native="changeEye"
             :suffix-icon="isOpen ? 'iconfont icon-faxian-yanjing' : 'iconfont icon-guanbi-yanjing'"
             :type="isOpen ? 'text' : 'password'"
             placeholder="请设置登录密码，不少于6位"
-            v-model="regcompanyform.password"
-          ></el-input>
+            v-model="regcompanyform.password"></el-input>
         </el-form-item>
-        <el-form-item label="电子邮箱" prop="email">
-          <el-input placeholder="请输入常用电子邮箱" clearable v-model="regcompanyform.email"></el-input>
+        <el-form-item label="电子邮箱"
+          prop="email">
+          <el-input placeholder="请输入常用电子邮箱"
+            clearable
+            v-model="regcompanyform.email"></el-input>
         </el-form-item>
-        <el-form-item label="企业名称" prop="companyName">
-          <el-input placeholder="请输入企业全称" clearable v-model="regcompanyform.companyName"></el-input>
+        <el-form-item label="企业名称"
+          prop="companyName">
+          <el-input placeholder="请输入企业全称"
+            clearable
+            v-model="regcompanyform.companyName"></el-input>
         </el-form-item>
 
-        <el-form-item label="企业规模" prop="companyNum">
-          <el-select placeholder="请选择企业规模" v-model="regcompanyform.companyNum">
-            <el-option label="1-30人" value="1-30人"></el-option>
-            <el-option label="30-100人" value="30-100人"></el-option>
-            <el-option label="101-300人" value="101-300人"></el-option>
-            <el-option label="301-1000人" value="301-1000人"></el-option>
-            <el-option label="1000人以上" value="1000人以上"></el-option>
+        <el-form-item label="企业规模"
+          prop="companyNum">
+          <el-select placeholder="请选择企业规模"
+            v-model="regcompanyform.companyNum">
+            <el-option label="1-30人"
+              value="1-30人"></el-option>
+            <el-option label="30-100人"
+              value="30-100人"></el-option>
+            <el-option label="101-300人"
+              value="101-300人"></el-option>
+            <el-option label="301-1000人"
+              value="301-1000人"></el-option>
+            <el-option label="1000人以上"
+              value="1000人以上"></el-option>
           </el-select>
         </el-form-item>
 
         <el-form-item>
-          <input type="checkbox" id="checkbox" name="type" class="regular-check repaytype argee" />
-          <label for="checkbox" @click="argee"></label>
+          <input type="checkbox"
+            id="checkbox"
+            name="type"
+            class="regular-check repaytype argee" />
+          <label for="checkbox"
+            @click="argee"></label>
           <label class="check-label">
             我同意并接受用户
-            <a class="url-tag" @click="nextStep('/service')">《服务条款》</a>和
-            <a class="url-tag" @click="nextStep('/service')">《隐私声明》</a>
+            <a class="url-tag"
+              @click="nextStep('/service')">《服务条款》</a>和
+            <a class="url-tag"
+              @click="nextStep('/privacyStatement')">《隐私声明》</a>
           </label>
         </el-form-item>
         <el-form-item>
-          <el-button class="fl" @click="nextStep('/register')">上一步</el-button>
-          <el-button class="fr" type="primary" :disabled="ischecked" @click="nextStep('model')">提交申请</el-button>
+          <el-button class="fl"
+            @click="nextStep('/register')">上一步</el-button>
+          <el-button class="fr"
+            type="primary"
+            :disabled="ischecked"
+            @click="nextStep('model')">提交申请</el-button>
         </el-form-item>
         <div class="lh30 c999">
           <p>感谢您的申请，我们将在7*24小时内完成审核！</p>
@@ -74,16 +103,15 @@
     </div>
 
     <!-- 弹窗 -->
-    <el-dialog
-      class="message-reg"
+    <el-dialog class="message-reg"
       title="申请已提交"
       :visible.sync="centerDialogVisible"
       width="740px"
       top="30vh"
-      center
-    >
+      center>
       <span>我们将在7*24小时内完成审核，请您注意查收短信消息!</span>
-      <span slot="footer" class="dialog-footer">
+      <span slot="footer"
+        class="dialog-footer">
         <el-button @click="centerDialogVisible = false">我知道了</el-button>
       </span>
     </el-dialog>
@@ -91,6 +119,7 @@
 </template>
 
 <script>
+import { validate } from "@/utils/validate";
 export default {
   data() {
     return {
@@ -107,7 +136,20 @@ export default {
         companyName: "",
         companyNum: ""
       },
-      rules: {}
+      rules: {
+        mobile: [
+          validate.verifyRequired("手机不能为空！"),
+          { validator: validate.verifyPhone, trigger: "change" }
+        ],
+        password: [
+          validate.verifyRequired("密码不能为空！"),
+          { validator: validate.verifyPwd, trigger: "change" }
+        ],
+        code: [validate.verifyRequired("短信验证码不能为空！")],
+        email: [validate.verifyRequired("邮箱不能为空！")],
+        companyName: [validate.verifyRequired("企业名称不能为空！")],
+        companyNum: [validate.verifyRequired("企业规模不能为空！")]
+      }
     };
   },
   methods: {
@@ -117,8 +159,26 @@ export default {
       }
     },
     sendcode() {
-      this.timeShow = true;
-      this.countdown();
+      if (this.regcompanyform.mobile === "") {
+        this.$showMsg("手机号不能为空");
+        return false;
+      } else {
+        this.timeShow = true;
+        this.countdown();
+        this.getRegCode(); //发送验证码
+      }
+    },
+    getRegCode() {
+      // 请求验证码接口
+      this.$api["SendCompanyRegisterCode"]({
+        mobile: this.regcompanyform.mobile
+      })
+        .then(res => {})
+        .catch(msg => {
+          this.$showMsg("发送验证码错误，请稍后再试！");
+          this.timeShow = false;
+          this.time = 59;
+        });
     },
     countdown() {
       let timer = setInterval(() => {
@@ -126,6 +186,7 @@ export default {
         if (this.time === 0) {
           clearInterval(timer);
           this.timeShow = false;
+          this.time = 59;
         }
       }, 1000);
     },
@@ -136,8 +197,11 @@ export default {
       if (path === "model") {
         this.$refs.regcompanyform.validate(valid => {
           if (valid) {
-            this.centerDialogVisible = true;
-            this.regcompanyform = {};
+            this.$api["CompanyRegister"]()
+              .then(res => {})
+              .catch(msg => {
+                this.$showMsg(msg);
+              });
           } else {
             return false;
           }
@@ -150,7 +214,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .company-step {
   padding: 82px 0;
   .company-reg {

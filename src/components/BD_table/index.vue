@@ -1,14 +1,14 @@
 <!--
  * @Author: lc
  * @Date: 2019-09-24 14:25:18
- * @LastEditors: SPM
- * @LastEditTime: 2019-10-25 09:47:18
+ * @LastEditors  : ranli
+ * @LastEditTime : 2020-01-02 12:24:30
  * @Description: 组件
  -->
 
 <template>
   <div>
-    
+
     <el-table v-bind="{...resetTableConfig}"
       style="width: 100%"
       @select="select"
@@ -22,7 +22,8 @@
               :key="btnIndex"
               @btnClick="item.btnClick ? item.btnClick(btnItem, scope.row, scope.$index) : null"
               v-bind="btnItem"></CustomBtn> -->
-            <el-button size="mini"
+            <el-button class="tabelHandelBtn"
+              size="mini"
               v-for="(btnItem, btnIndex) in item.btns"
               :key="btnIndex"
               @click="item.btnClick ? item.btnClick(btnItem, scope.row, scope.$index) : null">{{ typeof btnItem == 'object' ? btnItem.label : btnItem}}</el-button>
@@ -71,7 +72,6 @@ export default {
     // table参数重组
     resetTableHead() {
       if (this.tableHead) {
-        console.log(this.tableHead.map(item => new TableHeadClass(item)))
         return this.tableHead.map(item => new TableHeadClass(item));
       } else {
         return [];

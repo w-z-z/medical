@@ -3,14 +3,13 @@
  * @Version: 1.1.0
  * @Autor: ranli
  * @Date: 2019-12-23 17:58:37
- * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 18:55:17
+ * @LastEditors  : Seven
+ * @LastEditTime : 2019-12-24 14:28:08
  */
 
 
 export default [
 
-  //个人中心模块
   //1  修改手机号，验证原手机号验证码2
   {
     name: 'CheckCodeByOldMobile',
@@ -127,6 +126,6 @@ export default [
   // 20企业用户发送注册短信验证码
   {
     name: 'SendCompanyRegisterCode',
-    url: '​/v1​/register​/SendCompanyRegisterCode'
+    url: '/v1/register/SendCompanyRegisterCode'
   },
 ]

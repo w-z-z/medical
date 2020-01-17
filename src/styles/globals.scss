@@ -4,10 +4,10 @@
  * @Autor: ranli
  * @Date: 2019-12-20 21:25:48
  * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 11:24:25
+ * @LastEditTime : 2019-12-28 14:09:24
  */
 //主题色
-$primaryColor: #8D43FF;
+$primaryColor: #78D0C1;
 $successColor: #66C655;
 $warningColor:#FFBC00;
 $infoColor:#808080;
@@ -58,4 +58,13 @@ $fontWeight500: 500;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+}
+
+@mixin clearFix() {
+  &::after {
+    overflow: hidden;
+    content: "";
+    clear: both;
+  }
+
 }

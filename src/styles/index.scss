@@ -4,8 +4,10 @@
  * @Autor: ranli
  * @Date: 2019-12-22 14:22:15
  * @LastEditors  : Seven
- * @LastEditTime : 2019-12-23 17:02:51
+ * @LastEditTime : 2020-01-14 16:11:26
  */
+
+
 //引入reset文件
 @import './reset.scss';
 
@@ -17,12 +19,13 @@
 
 
 .container {
-    width: 1200px;
+    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
 }
 
 .container-fluid {
-    background-color: #F8F8F8;
+    // background-color: #F8F8F8;
 }
 
 .fl {
@@ -39,6 +42,10 @@
 
 .tcl {
     text-align: left;
+}
+
+.tcr {
+    text-align: right;
 }
 
 
@@ -120,12 +127,40 @@
 
 
 /* 字体大小 */
+.fs70 {
+    font-size: 70px;
+}
+
+.fs45 {
+    font-size: 45px;
+}
+
+.fs40 {
+    font-size: 40px;
+}
+
+.fs36 {
+    font-size: 36px;
+}
+
+.fs30 {
+    font-size: 30px;
+}
+
 .fs26 {
     font-size: 26px;
 }
 
 .fs24 {
     font-size: 24px;
+}
+
+.fs20 {
+    font-size: 20px;
+}
+
+.fs18 {
+    font-size: 18px;
 }
 
 .fs16 {
@@ -145,6 +180,10 @@
     line-height: 30px;
 }
 
+.lh50 {
+    line-height: 50px;
+}
+
 
 /* 背景色 */
 .bgcfff {
@@ -159,11 +198,14 @@
     background-color: #78D0C1;
 }
 
+
 .reg,
+#forget,
 .login,
-#forget {
+#mobileModify {
     .el-form {
-        width: 390px;
+        width: 80%;
+        max-width: 390px;
         position: relative;
 
         .get-code {
@@ -172,12 +214,14 @@
             width: 121px;
             line-height: 20px;
             padding: 0 20px;
-            font-size: 16px;
+            font-size: 14px;
             color: rgba(76, 155, 223, 1);
             right: 7px;
             top: 15px;
             text-align: center;
             border-left: 1px solid #dcdfe6;
+            cursor: pointer;
+            user-select: none;
         }
 
         .countdown {
@@ -199,9 +243,10 @@
             border-radius: 25px;
             text-indent: 15px;
             font-size: 16px;
+            height: 50px;
 
             &::placeholder {
-                font-size: 16px;
+                font-size: 14px;
                 text-indent: 15px;
             }
 
@@ -219,7 +264,8 @@
 
             }
         }
-        .el-form-item__content{
+
+        .el-form-item__content {
             text-align: center;
         }
 
@@ -290,16 +336,19 @@
 
         .regular-check:checked+label {
             border: 1px solid #78D0C1;
+            background-color: #78D0C1;
 
             &:after {
                 content: ' ';
-                width: 14px;
+                width: 8px;
                 height: 14px;
+                border: 1px solid #fff;
+                border-top: 0;
+                border-left: 0;
                 position: absolute;
-                top: 2px;
-                background: #78D0C1;
-                box-shadow: 0px 0px 5px 0px #78D0C1;
-                left: 2px;
+                transform: rotate(45deg) scaleY(1);
+                top: 0px;
+                left: 5px;
             }
         }
 
@@ -325,7 +374,7 @@
                 }
 
                 span {
-                    font-size: 20px;
+                    font-size: 16px;
 
                 }
 
@@ -341,4 +390,38 @@
             }
         }
     }
+
+
+}
+
+.login {
+    .el-form {
+        width: 100%;
+
+        .el-input__inner {
+            border-radius: 25px;
+            text-indent: 15px;
+            font-size: 16px;
+            height: 40px;
+
+
+
+        }
+
+        .get-code {
+            color: rgba(76, 155, 223, 1);
+            right: 7px;
+            top: 10px;
+            text-align: center;
+            border-left: 1px solid #dcdfe6;
+        }
+
+        .el-button {
+            height: 44px !important;
+            border-radius: 15px;
+            margin: 30px 0 20px 0;
+        }
+    }
+
+
 }

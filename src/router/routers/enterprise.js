@@ -4,10 +4,11 @@
  * @Autor: ranli
  * @Date: 2019-12-21 22:18:55
  * @LastEditors  : ranli
- * @LastEditTime : 2019-12-23 11:47:08
+ * @LastEditTime : 2020-01-08 10:16:36
  */
 import template from '@/views/template/index.vue'
 import layout from '@/layout/index.vue'
+import insideLayout from '@/components/insideLayout/index.vue'
 
 export default [{
     id: 123456,
@@ -25,9 +26,18 @@ export default [{
       title: "会员中心",
       name: "userCener",
       path: '/userCener',
-      component: () => import('@/views/enterprise/index.vue'),
-      redirect: '/userCener/setUserInfo',
+      component: insideLayout,
+      redirect: '/userCener/userCenterHome',
       children: [{
+          id: 123456,
+          title: "首页",
+          name: "userCenterHome",
+          path: '/userCener/userCenterHome',
+          component: () => import('@/views/enterprise/index.vue'),
+          children: [
+
+          ]
+        }, {
           id: 123456,
           title: "设置个人",
           name: "setUserInfo",
@@ -73,7 +83,7 @@ export default [{
                 title: "消息详情",
               },
               name: "messageDetail",
-              path: '/userCener/messageDetail',
+              path: '/userCener/messageDetail/:msgId',
               component: () => import('@/views/message/detail.vue'),
             },
           ]

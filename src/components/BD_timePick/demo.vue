@@ -1,8 +1,8 @@
 <!--
  * @Author: ranli
  * @Date: 2019-09-25 16:09:18
- * @LastEditors: ranli
- * @LastEditTime: 2019-09-26 15:47:35
+ * @LastEditors  : ranli
+ * @LastEditTime : 2020-01-13 15:08:19
  * @Description: Description
  -->
 <template>
@@ -76,18 +76,18 @@ export default {
   },
   methods: {
     changeValue() {
-      console.log("改变值");
+      // console.log("改变值");
     },
     blurDom() {
-      console.log("失去焦点");
+      // console.log("失去焦点");
     },
     focusDom() {
-      console.log("获取焦点");
+      // console.log("获取焦点");
     }
   },
   watch: {
     values(a) {
-      console.log(a);
+      // console.log(a);
     }
   }
 };

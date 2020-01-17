@@ -3,11 +3,12 @@
  * @Version: 1.1.0
  * @Autor: ranli
  * @Date: 2019-12-22 18:51:42
- * @LastEditors  : Seven
- * @LastEditTime : 2019-12-23 18:59:26
+ * @LastEditors  : ranli
+ * @LastEditTime : 2020-01-10 13:22:07
  -->
 <template>
-  <div id="app">
+  <div ref="appEn"
+    id="app">
     <router-view></router-view>
   </div>
 </template>
@@ -17,8 +18,9 @@ export default {
   name: "AppEntry",
   methods: {},
   created() {
-    //提示信息
-    // console.log(this.$showMsg("hbfghf"));
+    //清空注册数据
+    this.$store.dispatch("regData", {});
+    // console.log("页面刷新");
   },
   methods: {}
 };

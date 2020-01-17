@@ -1,4 +1,3 @@
-
 /**
  * form参数设置
  */
@@ -12,9 +11,13 @@ class FormConfigClass {
     labelPosition = 'right',
     okBtn = {
       label: "确 定",
-      type: "primary"
+      type: "primary",
+      costomClass: "searchFromConfirmBtn"
     },
-    noBtn = { label: "取 消" },
+    noBtn = {
+      label: "取 消",
+      show: true
+    },
     disabled = false
   } = {}) {
     this.rules = rules
@@ -30,4 +33,6 @@ class FormConfigClass {
 }
 
 
-export { FormConfigClass }
+export {
+  FormConfigClass
+}

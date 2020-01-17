@@ -3,8 +3,8 @@
  * @Version: 1.1.0
  * @Autor: ranli
  * @Date: 2019-12-22 18:24:54
- * @LastEditors  : Seven
- * @LastEditTime : 2019-12-23 16:28:21
+ * @LastEditors  : ranli
+ * @LastEditTime : 2020-01-08 10:50:21
  */
 import Vue from 'vue'
 import ElementUI from 'element-ui'
@@ -14,42 +14,19 @@ import App from './App'
 import router from './router'
 import store from './store'
 import styles from './styles/index.scss'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import personRouter from '@/router/routers/person'
-import enterpriseRouter from '@/router/routers/enterprise'
 import api from './api'
 import common from './utils/common'
-
-Vue.use(VueAwesomeSwiper)
-
+import './assets/fonts/iconfont.css'
+import * as qiniu from 'qiniu-js'
+import _ from 'lodash'
+Vue.prototype._ = _
 Vue.use(api)
 Vue.use(common)
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 
-router.beforeEach((to, from, next) => {
 
-  if (to.meta.isStatic) {
-    next()
-  } else {
-    // 处理动态添加路由的刷新问题
-    // console.log(router.hasAddRouter)
-    // console.log(store.state.user.userInfo.type)
-    if (!router.hasAddRouter) {
-      let _type = store.state.user.userInfo.type == 0 ? personRouter : enterpriseRouter
-      store.dispatch("addRouters", _type)
-      next({
-        ...to,
-        replace: true
-      })
-    } else {
-      next()
-    }
-
-  }
-
-})
 
 /* eslint-disable no-new */
 new Vue({
