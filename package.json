@@ -9,7 +9,7 @@
     "production": "vue-cli-service build --mode production"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "core-js": "^3.4.3",
     "echarts": "^4.5.0",
     "element-ui": "^2.9.1",
